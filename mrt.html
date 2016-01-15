@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MRT map demo</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="js/mrt.js"></script>	
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		#map {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 50%;
+			z-index: 0;
+		}
+	</style>
+</head>
+<body>
+	<div data-role="page" id="one">
+		<div data-role="header" style="z-index: 2">
+			<h1>MRT map demo</h1>
+		</div>
+		<div data-role="content">
+			<div id="map" class="map"></div>
+			<script>var map1_1_marker = [[52.52,13.41],{lat:52.54,lng:13.43}];</script>
+		</div><!-- /content -->
+
+	
+	</div>
+</body>
+</html>
