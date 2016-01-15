@@ -35,3 +35,15 @@
     -moz-transform: translate3d(15em,0,0);
     transform: translate3d(15em,0,0);
 }
+
+/* Reveal panel shadow on top of the listview menu (only to be used if you don't use fixed toolbars) */
+#one .ui-panel-display-reveal {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+#one .ui-panel-page-content-position-left {
+    -webkit-box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+    -moz-box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+    box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+}
