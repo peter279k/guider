@@ -11,11 +11,9 @@
 	<style>
 		.map {
 			position: absolute;
-			left: 0;
-			top: 0;
 			width: 100%;
-			height: 50%;
-			z-index: 0;
+			height: 100%;
+			padding: 0;
 		}
 		
 		#my-header {
@@ -69,12 +67,11 @@
 	</script>
 </head>
 <body>
-	<div data-role="page" id="one">
+	<div data-role="page" id="one" data-theme="b">
 		<div id="my-header" data-role="header">
 			<h1>MRT map demo</h1>
 		</div>
-		<div data-role="content">
-			<div id="map" class="map"></div>
+		<div data-role="content" class="map">
 		</div>
 	</div>
 </body>
