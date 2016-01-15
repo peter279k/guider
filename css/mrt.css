@@ -16,6 +16,22 @@
 	padding: 4px
 }
 
-.ui-pannel-inner {
-    width: 15em;
+/* Adjust the width of the left reveal menu. */
+#one .ui-panel {
+    width: 15em;
+}
+#one .ui-panel-closed {
+    width: 0;
+}
+#one .ui-panel-page-content-position-left,
+.ui-panel-dismiss-open.ui-panel-dismiss-position-left {
+    left: 15em;
+    right: -15em;
+}
+#one .ui-panel-animate.ui-panel-page-content-position-left.ui-panel-page-content-display-reveal {
+    left: 0;
+    right: 0;
+    -webkit-transform: translate3d(15em,0,0);
+    -moz-transform: translate3d(15em,0,0);
+    transform: translate3d(15em,0,0);
 }
