@@ -18,32 +18,32 @@
 
 /* Adjust the width of the left reveal menu. */
 #one .ui-panel {
-    width: 15em;
+	width: 15em;
 }
 #one .ui-panel-closed {
-    width: 0;
+	width: 0;
 }
 #one .ui-panel-page-content-position-left,
 .ui-panel-dismiss-open.ui-panel-dismiss-position-left {
-    left: 15em;
-    right: -15em;
+	left: 15em;
+	right: -15em;
 }
 #one .ui-panel-animate.ui-panel-page-content-position-left.ui-panel-page-content-display-reveal {
-    left: 0;
-    right: 0;
-    -webkit-transform: translate3d(15em,0,0);
-    -moz-transform: translate3d(15em,0,0);
-    transform: translate3d(15em,0,0);
+	left: 0;
+	right: 0;
+	-webkit-transform: translate3d(15em,0,0);
+	-moz-transform: translate3d(15em,0,0);
+	transform: translate3d(15em,0,0);
 }
 
 /* Reveal panel shadow on top of the listview menu (only to be used if you don't use fixed toolbars) */
 #one .ui-panel-display-reveal {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
 #one .ui-panel-page-content-position-left {
-    -webkit-box-shadow: -5px 0px 5px rgba(0,0,0,.15);
-    -moz-box-shadow: -5px 0px 5px rgba(0,0,0,.15);
-    box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+	-webkit-box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+	-moz-box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+	box-shadow: -5px 0px 5px rgba(0,0,0,.15);
 }
