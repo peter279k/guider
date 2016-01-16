@@ -11,7 +11,7 @@
 			$json = array();
 			if($handler !== false) {
 				$index = 0;
-				while (feof($handler)) {
+				while (!feof($handler)) {
 					$arr = explode(",", $handler);
 					$json[$index]["lat"] = $arr[3];
 					$json[$index]["lng"] = $arr[4];
