@@ -42,7 +42,7 @@ $(function() {
 			markCount++;
 		}
 	});
-	
+
 	// Basic
 	$(".map").tinyMap({
 		// Map center
