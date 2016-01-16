@@ -30,8 +30,17 @@ $(function() {
 	//get mrt mark
 	$.get("/guider/mrt/get/exit", function(data) {
 		var result = $.parseJSON(data);
-		//convert TWD97 to lat,lng
-		
+		var mark = [];
+		var markCount = 0;
+		for(var index=1;index<result.length;index++) {
+			var temp = twd97_to_latlng(result[index]["lat"].replace("\n", ""), result[index]["lng"].replace("\n", ""));
+			var tempMark = {};
+			tempMark['addr'] = [];
+			tempMark['addr'][0] = temp["lat"];
+			tempMark['addr'][1] = temp["lng"];
+			mark[markCount] = tempMark;
+			markCount++;
+		}
 	});
 
 	// Basic
@@ -43,14 +52,6 @@ $(function() {
 		// or 'center': 'ADDRESS'
 		// or 'center': 'N48°45.5952  E20°59.976' // WGS84 format
 		'zoom': 14,
-		'marker': [
-			{'addr': ['25.041282077030896', '121.56741142272949']},
-			{'addr': ['25.0383270525352', '121.57045841217041'], 'text': '<strong>110台灣台北市信義區松高路68號</strong>'},
-			{'addr': ['25.034516521123315','121.56496524810791'], 'text': '<strong>110台灣台北市信義區台北101</strong>'},
-			{'addr': ['25.037627167884715', '121.56732559204102'], 'text': '<strong>110台灣台北市信義區松壽路20巷</strong>'},
-			{'addr': ['25.039726809855434', '121.55633926391602'], 'text': '<strong>106台灣台北市大安區光復南路280巷25號</strong>'},
-			{'addr': ['25.037160575899154', '121.55350685119629'], 'text': '<strong>106台灣台北市大安區仁愛路四段300巷11號</strong>'},
-			{'addr': ['25.035877438787317', '121.55715465545654'], 'text': '<strong>106台灣台北市大安區光復南路440-1號</strong>'}
-		]
+		'marker': mark
 	});
 });
