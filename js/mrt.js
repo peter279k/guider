@@ -26,9 +26,6 @@ $(function() {
 		// 使用個人化的地圖，預設 false
 		'signed_in': false,
 		'autoLocation': true,
-		'autoLocation': function (loc) {
-			console.log(loc);
-		},
 		// MarkerClustererPlus.js 路徑
 		// 預設 '//google‐maps‐utility‐library‐v3.googlecode.com/svn/trunk/markerclustererplus/src/markerclusterer_packed.js'
 		// 建議下載至自有主機，避免讀取延遲造成無法使用。
