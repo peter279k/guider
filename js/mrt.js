@@ -53,7 +53,7 @@ $(function() {
 		// or 'center': 'N48°45.5952  E20°59.976' // WGS84 format
 		'zoom': 14,
 		'autoLocation': function (loc) {
-			map.tinyMap('modify', {
+			$(".map").tinyMap('modify', {
 				'marker': [{
 					'addr': [
 						loc.coords.latitude,
