@@ -15,6 +15,7 @@
 					$arr = explode(",", fgets($handler));
 					$json[$index]["lat"] = $arr[3];
 					$json[$index]["lng"] = $arr[4];
+					$json[$index]["addr"] = $arr[1];
 					$index += 1;
 				}
 

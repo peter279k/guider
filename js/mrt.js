@@ -36,6 +36,7 @@ $(function() {
 			var temp = twd97_to_latlng(result[index]["lat"].replace("\n", ""), result[index]["lng"].replace("\n", ""));
 			var tempMark = {};
 			tempMark['addr'] = [];
+			tempMark['text'] = result[index]["addr"];
 			tempMark['addr'][0] = temp["lat"];
 			tempMark['addr'][1] = temp["lng"];
 			mark[markCount] = tempMark;
