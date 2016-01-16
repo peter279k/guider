@@ -2,12 +2,6 @@ $(function() {
 	// 執行 tinyMap 前可使用 $.tinyMapConfigure 進行 API 的設定。
 	var mark = [];
 	var centerPos = ['25.039065815333753', '121.56097412109375'];
-	//get current location
-    if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			centerPos = [position.coords.latitude,position.coords.longitude];
-		});
-    }
 	
 	$.fn.tinyMapConfigure({
 		// Google Maps API URL
@@ -58,6 +52,16 @@ $(function() {
 		// or 'center': 'ADDRESS'
 		// or 'center': 'N48°45.5952  E20°59.976' // WGS84 format
 		'zoom': 14,
+		'autoLocation': function (loc) {
+			map.tinyMap('modify', {
+				'marker': [{
+					'addr': [
+						loc.coords.latitude,
+						loc.coords.longitude
+					]
+				}]
+			});
+		},
 		'marker': mark
 	});
 });
