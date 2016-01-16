@@ -1,6 +1,17 @@
 $(function() {
 	// 執行 tinyMap 前可使用 $.tinyMapConfigure 進行 API 的設定。
 	var mark = [];
+	var center = [];
+	//get current location
+    if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			center = [position.coords.latitude.toString(),position.coords.longitude.toString()];
+		});
+    }
+	else {
+		center = ['25.039065815333753', '121.56097412109375'];
+    }
+	
 	$.fn.tinyMapConfigure({
 		// Google Maps API URL
 		'api': '//maps.googleapis.com/maps/api/js',
