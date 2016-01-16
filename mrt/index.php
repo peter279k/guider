@@ -7,7 +7,26 @@
 		$name = htmlentities($args["name"]);
 		if($name === "exit") {
 			//parse mrt.csv file
-			
+			$handler = fopen("exit.csv", "r");
+			$json = array();
+			if($handler !== false) {
+				$index = 0;
+				while (feof($handler)) {
+					$arr = explode(",", $handler);
+					$json[$index]["lat"] = $arr[3];
+					$json[$index]["lng"] = $arr[4];
+					$index += 1;
+				}
+
+			}
+			else {
+				$json = "file not found";
+			}
+
+			if(is_array($json))
+				$response -> write(json_encode($json));
+			else
+				$response -> write($json);
 		}
 
 		return $response;
