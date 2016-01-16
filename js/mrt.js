@@ -58,7 +58,7 @@ $(function() {
 	// Basic
 	$(".map").tinyMap({
 		// Map center
-		'center': ['25.039065815333753', '121.56097412109375'],
+		'center': center,
 		// or 'center': 'lat, lng'
 		// or 'center': [lat, lng]
 		// or 'center': 'ADDRESS'
