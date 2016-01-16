@@ -5,7 +5,7 @@ $(function() {
 	//get current location
     if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-			center = [position.coords.latitude,position.coords.longitude];
+			center = [position.coords.latitude.toString(),position.coords.longitude.toString()];
 		});
     }
 	else {
