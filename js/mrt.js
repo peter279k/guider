@@ -7,9 +7,33 @@ $(function() {
 		navigator.geolocation.getCurrentPosition(function(position) {
 			centerPos = [position.coords.latitude,position.coords.longitude];
 		});
+		
+		// Basic
+		$(".map").tinyMap({
+			// Map center
+			'center': centerPos,
+			// or 'center': 'lat, lng'
+			// or 'center': [lat, lng]
+			// or 'center': 'ADDRESS'
+			// or 'center': 'N48°45.5952  E20°59.976' // WGS84 format
+			'zoom': 14,
+			'marker': mark
+		});
     }
 	else {
 		centerPos = ['25.039065815333753', '121.56097412109375'];
+		
+		// Basic
+		$(".map").tinyMap({
+			// Map center
+			'center': centerPos,
+			// or 'center': 'lat, lng'
+			// or 'center': [lat, lng]
+			// or 'center': 'ADDRESS'
+			// or 'center': 'N48°45.5952  E20°59.976' // WGS84 format
+			'zoom': 14,
+			'marker': mark
+		});
     }
 	
 	$.fn.tinyMapConfigure({
@@ -50,17 +74,5 @@ $(function() {
 			mark[markCount] = tempMark;
 			markCount++;
 		}
-	});
-
-	// Basic
-	$(".map").tinyMap({
-		// Map center
-		'center': centerPos,
-		// or 'center': 'lat, lng'
-		// or 'center': [lat, lng]
-		// or 'center': 'ADDRESS'
-		// or 'center': 'N48°45.5952  E20°59.976' // WGS84 format
-		'zoom': 14,
-		'marker': mark
 	});
 });
