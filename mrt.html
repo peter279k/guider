@@ -16,6 +16,14 @@
 	<div data-role="page" id="one" data-theme="a">
 		<div id="my-header" data-role="header">
 			<h1>MRT map demo</h1>
+			<div class="segmented-control ui-bar-d">
+				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+					<input type="radio" name="switch" id="list-switch" checked="true">
+						<label for="list-switch">List</label>
+					<input type="radio" name="switch" id="map-switch">
+						<label for="map-switch">Map</label>
+				</fieldset>
+			</div>
 		</div>
 		<div data-role="content">
 			<div class="map"></div>
