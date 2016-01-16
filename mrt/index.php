@@ -12,7 +12,7 @@
 			if($handler !== false) {
 				$index = 0;
 				while (!feof($handler)) {
-					$arr = explode(",", $handler);
+					$arr = explode(",", fgets($handler));
 					$json[$index]["lat"] = $arr[3];
 					$json[$index]["lng"] = $arr[4];
 					$index += 1;
