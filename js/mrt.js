@@ -1,5 +1,6 @@
 $(function() {
 	// 執行 tinyMap 前可使用 $.tinyMapConfigure 進行 API 的設定。
+	var mark = [];
 	$.fn.tinyMapConfigure({
 		// Google Maps API URL
 		'api': '//maps.googleapis.com/maps/api/js',
@@ -30,7 +31,6 @@ $(function() {
 	//get mrt mark
 	$.get("/guider/mrt/get/exit", function(data) {
 		var result = $.parseJSON(data);
-		var mark = [];
 		var markCount = 0;
 		for(var index=1;index<result.length;index++) {
 			var temp = twd97_to_latlng(result[index]["lat"].replace("\n", ""), result[index]["lng"].replace("\n", ""));
