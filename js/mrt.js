@@ -1,15 +1,15 @@
 $(function() {
 	// 執行 tinyMap 前可使用 $.tinyMapConfigure 進行 API 的設定。
 	var mark = [];
-	var center = [];
+	var centerPos = null;
 	//get current location
     if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-			center = [position.coords.latitude,position.coords.longitude];
+			centerPos = [position.coords.latitude,position.coords.longitude];
 		});
     }
 	else {
-		center = ['25.039065815333753', '121.56097412109375'];
+		centerPos = ['25.039065815333753', '121.56097412109375'];
     }
 	
 	$.fn.tinyMapConfigure({
@@ -55,7 +55,7 @@ $(function() {
 	// Basic
 	$(".map").tinyMap({
 		// Map center
-		'center': center,
+		'center': centerPos,
 		// or 'center': 'lat, lng'
 		// or 'center': [lat, lng]
 		// or 'center': 'ADDRESS'
