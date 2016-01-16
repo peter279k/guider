@@ -7,7 +7,7 @@
 		$name = htmlentities($args["name"]);
 		if($name === "exit") {
 			//parse mrt.csv file
-			$handler = fopen("exit.csv", "r");
+			$handler = fopen("../file/exit.csv", "r");
 			$json = array();
 			if($handler !== false) {
 				$index = 0;
