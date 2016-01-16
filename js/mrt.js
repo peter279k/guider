@@ -26,7 +26,14 @@ $(function() {
 		// 建議下載至自有主機，避免讀取延遲造成無法使用。
 		'withLabel': '//google‐maps‐utility‐library‐v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel_packed.js'
 	});
+	
+	//get mrt mark
+	$.get("/guider/mrt/get/exit", function(data) {
+		var result = $.parseJSON(data);
+		//convert TWD97 to lat,lng
 		
+	});
+
 	// Basic
 	$(".map").tinyMap({
 		// Map center
