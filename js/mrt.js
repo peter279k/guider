@@ -5,7 +5,7 @@ $(function() {
 	//get current location
     if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-			center = [position.coords.latitude.toString(),position.coords.longitude.toString()];
+			center = [position.coords.latitude,position.coords.longitude];
 		});
     }
 	else {
@@ -58,7 +58,7 @@ $(function() {
 	// Basic
 	$(".map").tinyMap({
 		// Map center
-		'center': center,
+		'center': ['25.039065815333753', '121.56097412109375'],
 		// or 'center': 'lat, lng'
 		// or 'center': [lat, lng]
 		// or 'center': 'ADDRESS'
