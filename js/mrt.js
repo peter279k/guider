@@ -60,17 +60,12 @@ $(function() {
             'requestExtra': {
                 'provideRouteAlternatives': true
             }
-        }],
-		'event': {
-			'directions_changed': {
-				'func': function () {
-					var m = $(".map").data('tinyMap');
-					var info = m.getDirectionsInfo();
-					console.log(info);
-				}
-			}
-		}
+        }]
 	});
+	
+	var m = $(".map").data('tinyMap');
+	var info = m.getDirectionsInfo();
+	console.log(info);
 
 	/*
 	// Basic
