@@ -66,7 +66,7 @@ $(function() {
 	$("#get-route").click(function() {
 		var m = $(".map").data('tinyMap');
 		var info = m.getDirectionsInfo();
-		console.dir(info.toString());
+		console.dir(JSON.toString(info));
 	});
 
 	/*
