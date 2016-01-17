@@ -42,7 +42,22 @@ $(function() {
 			markCount++;
 		}
 	});
+	
+	//Route Plan路徑規劃
+	$(".map").tinyMap({
+		'center': centerPos,
+		'zoom': 14,
+		'direction': [{
+            'from': '台北車站',
+            'to': '台北101',
+            'renderAll': true,
+            'requestExtra': {
+                'provideRouteAlternatives': true,
+            }
+        }]
+	});
 
+	/*
 	// Basic
 	$(".map").tinyMap({
 		// Map center
@@ -64,4 +79,5 @@ $(function() {
 		},
 		'marker': mark
 	});
+	*/
 });
