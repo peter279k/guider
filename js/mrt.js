@@ -44,15 +44,28 @@ $(function() {
 	});
 	
 	//Route Plan路徑規劃
-	$(".map").tinyMap({
-		'center': centerPos,
-		'zoom': 14,
-		'direction': [{
-            'from': '台北車站',
-            'to': '台北101',
-            'renderAll': true,
+	$('.map').tinyMap({
+    'center': '臺北市大安區羅斯福路四段一號',
+    'zoom': 13,
+    'direction': [{
+            'from': '臺北市大安區羅斯福路四段一號',
+            'to': '臺北市北平西路三號',
+            'travel': 'driving',
+            // 自訂路徑顏色
+            'polylineOptions': {
+                'strokeColor': '#CCCC00',
+                'strokeOpacity': 0.5
+            },
+            'event': {
+                'directions_changed': {
+                    'func': function () {
+                        $('#alert').addClass('alert-success').text('路徑規劃已完成。');
+                    }
+                }
+            },
+			'renderAll': true,
             'requestExtra': {
-                'provideRouteAlternatives': true,
+                'provideRouteAlternatives': true
             }
         }]
 	});
