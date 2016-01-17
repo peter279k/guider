@@ -45,9 +45,9 @@ $(function() {
 	
 	//Route Plan路徑規劃
 	$('.map').tinyMap({
-    'center': '臺北市大安區羅斯福路四段一號',
-    'zoom': 13,
-    'direction': [{
+		'center': '臺北市大安區羅斯福路四段一號',
+		'zoom': 13,
+		'direction': [{
             'from': '臺北市大安區羅斯福路四段一號',
             'to': '臺北市北平西路三號',
             'travel': 'driving',
@@ -56,18 +56,20 @@ $(function() {
                 'strokeColor': '#CCCC00',
                 'strokeOpacity': 0.5
             },
-            'event': {
-                'directions_changed': {
-                    'func': function () {
-                        $('#alert').addClass('alert-success').text('路徑規劃已完成。');
-                    }
-                }
-            },
 			'renderAll': true,
             'requestExtra': {
                 'provideRouteAlternatives': true
             }
-        }]
+        }],
+		'event': {
+			'directions_changed': {
+				'func': function () {
+					var m = $(".map").data('tinyMap');
+					var info = m.getDirectionsInfo();
+					console.log(info);
+				}
+			}
+		}
 	});
 
 	/*
