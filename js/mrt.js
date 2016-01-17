@@ -62,10 +62,13 @@ $(function() {
             }
         }]
 	});
-	
-	var m = $(".map").data('tinyMap');
-	var info = m.getDirectionsInfo();
-	console.log(info);
+
+	$("#get-route").click(function(e) {
+		e.preventDefault();
+		var m = $(".map").data('tinyMap');
+		var info = m.getDirectionsInfo();
+		console.log(info);
+	});
 
 	/*
 	// Basic
