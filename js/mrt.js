@@ -65,7 +65,7 @@ $(function() {
                     var direction = this.getDirections();
                     // direction.routes[n] 表示第 N 段規劃的路徑
                     // direction.routes[n].legs 該路段細節
-					console.log(direction);
+					console.log(direction.toString);
                 }
             }
 
