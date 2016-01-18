@@ -16,41 +16,31 @@
 	<div data-role="page" id="one" data-theme="a">
 		<div id="my-header" data-role="header">
 			<h1>MRT map demo</h1>
-			<div class="segmented-control ui-bar-d" style="text-align: center;">
-				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-					<input type="radio" name="switch" id="list-switch" checked="true">
-						<label for="list-switch">查詢</label>
-					<input type="radio" name="switch" id="map-switch">
-						<label for="map-switch">地圖</label>
-					<input type="radio" id="get-route">
-						<label for="get-route">取得路線</label>
-				</fieldset>
-			</div>
 		</div>
 		<div data-role="content">
 			<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
 				<div class="map"></div>
-                    <div data-role="fieldcontain">
-                        <label for="from">From</label>
-                        <input type="text" id="from" value="Goteborg, Sweden"/>
-                    </div>
-                    <div data-role="fieldcontain">
-                        <label for="to">To</label>
-                        <input type="text" id="to" value="Stockholm, Sweden"/>
-                    </div>
-                    <div data-role="fieldcontain">
-                        <label for="mode" class="select">Transportation method:</label>
-                        <select name="select-choice-0" id="mode">
-                            <option value="DRIVING">Driving</option>
-                            <option value="WALKING">Walking</option>
-                            <option value="BICYCLING">Bicycling</option>
+                <div data-role="fieldcontain">
+					<label for="from">請輸入起點：</label>
+                    <input type="text" id="from">
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="to">請輸入終點：</label>
+                    <input type="text" id="to">
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="mode" class="select">請選擇交通方式：</label>
+						<select name="select-choice-0" id="mode">
+							<option value="DRIVING">開車</option>
+                            <option value="WALKING">步行</option>
                         </select>
-                    </div>
-                    <a data-icon="search" data-role="button" href="#" id="submit">Get directions</a>
+                </div>
+				<a data-icon="search" data-role="button" href="#" id="submit">送出</a>
 			</div>
             <div id="results" style="display:none;">
                 <div id="directions"></div>
             </div>
+			
 		</div>
 	</div>
 </body>
