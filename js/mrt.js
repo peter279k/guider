@@ -59,14 +59,17 @@ $(function() {
 			'renderAll': true,
             'requestExtra': {
                 'provideRouteAlternatives': true
+            },
+			'event' : {
+                'directions_changed': function () {
+                    var direction = this.getDirections(),
+                    // direction.routes[n] 表示第 N 段規劃的路徑
+                    // direction.routes[n].legs 該路段細節
+					console.log(direction);
+                }
             }
-        }]
-	});
 
-	$("#get-route").click(function() {
-		var m = $(".map").data('tinyMap');
-		var info = m.getDirectionsInfo();
-		console.dir(JSON.toString(info));
+        }]
 	});
 
 	/*
