@@ -1,5 +1,5 @@
 .map {
-	width: 100%;
+	width: 50%;
 	height: 50%;
 	position: absolute;
 	padding: 0;
@@ -14,16 +14,4 @@
 	border-radius: 4px;
 	color: white;
 	padding: 4px
-}
-
-/* stack all grids below 40em (640px) */
-@media all and (max-width: 35em) {
-	.ui-block-a,
-	.ui-block-b,
-	.ui-block-c,
-	.ui-block-d,
-	.ui-block-e {
-		width: 100%;
-		float: none;
-	}
 }
