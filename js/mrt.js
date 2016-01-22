@@ -47,11 +47,11 @@ $(function() {
 	$('.map').tinyMap({
 		'center': '臺北市大安區羅斯福路四段一號',
 		'zoom': 13,
-		'panel': $("#panel"),
 		'direction': [{
             'from': '臺北市大安區羅斯福路四段一號',
             'to': '臺北市北平西路三號',
             'travel': 'transit',
+			'panel': $("#panel"),
             // 自訂路徑顏色
             'polylineOptions': {
                 'strokeColor': '#CCCC00',
