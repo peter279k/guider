@@ -68,8 +68,8 @@ $(function() {
                     // direction.routes[n] 表示第 N 段規劃的路徑
                     // direction.routes[n].legs 該路段細節
 					if (direction) {
-						$("#directions").append("<p>" + direction.routes[0].legs[0].distance.text + "</p>")
-							.append("<p>" + direction.routes[0].legs[0].duration.text + "</p>");
+						$("#directions").append("<p>距離：" + direction.routes[0].legs[0].distance.text + "</p>")
+							.append("<p>旅行時間：" + direction.routes[0].legs[0].duration.text + "</p>");
                     }
                 }
             }
