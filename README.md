@@ -1,5 +1,5 @@
 # TLCTS
-Taipei OMG
+Taipei Low-Carbon Transit System
 
 It's a new service about planning better directions in Taipei
 
