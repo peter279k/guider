@@ -47,7 +47,7 @@ $(function() {
 	$('.map').tinyMap({
 		'center': '臺北市大安區羅斯福路四段一號',
 		'zoom': 13,
-		'panel': $("#directions"),
+		'panel': $("#panel"),
 		'direction': [{
             'from': '臺北市大安區羅斯福路四段一號',
             'to': '臺北市北平西路三號',
