@@ -67,7 +67,7 @@ $(function() {
                     // direction.routes[n].legs 該路段細節
 					if (direction) {
 						for(var index=0;index<direction.routes.length;index++) {
-							$("#directions").append("<p>" + direction.routes[index].legs[index].distance.text + "</p>");
+							$("#directions").append("<p>" + direction.routes[index].legs[index].distance.text + "</p>")
 								.append("<p>" + direction.routes[index].legs[index].duration.text + "</p>");
 						}
                     }
