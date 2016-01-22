@@ -65,7 +65,10 @@ $(function() {
                     var direction = this.getDirections();
                     // direction.routes[n] 表示第 N 段規劃的路徑
                     // direction.routes[n].legs 該路段細節
-					console.log(direction.toString);
+					if (direction) {
+                        $("#directions").append("<p>" + direction.routes[0].legs[0].distance.text + "</p>")
+                            .append("<p>" + direction.routes[0].legs[0].duration.text + "</p>");
+                    }
                 }
             }
 
