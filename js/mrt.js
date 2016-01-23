@@ -104,10 +104,12 @@ $(function() {
 		}
 	});
 	
-	$('.map').tinyMap('query', '北平三路', function (addr) {
-		console.log(addr);
-		//console.log(addr.geometry.location.lat()); // Latitude
-		//console.log(addr.geometry.location.lng()); // Longitude
+	$("#from").change(function() {
+		$('.map').tinyMap('query', $("#from").val(), function (addr) {
+			console.log(addr);
+			//console.log(addr.geometry.location.lat()); // Latitude
+			//console.log(addr.geometry.location.lng()); // Longitude
+		});
 	});
 	
 	//get mrt mark
