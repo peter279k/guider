@@ -15,12 +15,7 @@ $(function() {
 		event.preventDefault();
 		var fromText = $("#from").val();
 		var toText = $("#to").val();
-		var travel = $("#mode").val();
-		
-		if(travel === "CHOOSE-TRANSPORT") {
-			alertify.alertify.alert("請選擇交通方式！");
-			return false;
-		}
+
 		if(fromText === "") {
 			alertify.alert("請輸入起點地址！");
 			return false;
@@ -98,7 +93,7 @@ $(function() {
 		}],
 		'zoom': 13,
 		'autoLocation': function (loc) {
-			$("#from").val("起點目前為使用者位置");
+			$("#from").val("目前為使用者位置");
 			centerPos = [loc.coords.latitude,loc.coords.longitude];
 			$(".map").tinyMap("clear").tinyMap('modify', {
 				'center': centerPos,
@@ -113,7 +108,7 @@ $(function() {
 	});
 	
 	$("#from").on("keypress", function(e) {
-		if($("#from").val() === "起點目前為使用者位置")
+		if($("#from").val() === "目前為使用者位置")
 			return false;
 		if(e.keyCode == 13) {
 			$('.map').tinyMap('query', $("#from").val(), function (addr) {
@@ -134,7 +129,7 @@ $(function() {
 			$('.map').tinyMap('query', $("#to").val(), function (addr) {
 				if(addr) {
 					$("#to-list").empty();
-					$("#to-list").append("<p>可能終點點地址：</p>");
+					$("#to-list").append("<p>可能終點地址：</p>");
 					$("#to").val(addr.formatted_address);
 					$("#to-list").append("<li>" + addr.formatted_address + "</li>");
 				}
