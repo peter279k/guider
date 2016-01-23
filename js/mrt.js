@@ -3,6 +3,57 @@ $(function() {
 	var mark = [];
 	var centerPos = ['25.039065815333753', '121.56097412109375'];
 	
+	$("#submit").click(function(event) {
+		event.preventDefault();
+		var fromText = $("#from").val();
+		var toText = $("#to").val();
+		var direction = {
+			'from': fromText,
+			'to': toText,
+			'travel': 'transit',
+			'panel': $("#panel"),
+			// 自訂路徑顏色
+			'polylineOptions': {
+				'strokeColor': '#CCCC00',
+				'strokeOpacity': 0.5
+			},
+			'renderAll': true,
+			'requestExtra': {
+				'provideRouteAlternatives': true
+			},
+			'event' : {
+				'directions_changed': function () {
+					var direction = this.getDirections();
+					$("#directions").empty();
+					// direction.routes[n] 表示第 N 段規劃的路徑
+					// direction.routes[n].legs 該路段細節
+					if (direction) {
+						console.log(direction);
+						$("#directions").append("<p>距離：" + direction.routes[0].legs[0].distance.text + "</p>")
+							.append("<p>旅行時間：" + direction.routes[0].legs[0].duration.text + "</p>");
+					}
+				}
+			}
+		};
+
+		//Route Plan路徑規劃
+		$('.map').tinyMap({
+			'center': '臺北市大安區羅斯福路四段一號',
+			'zoom': 13,
+			'autoLocation': function (loc) {
+				$(".map").tinyMap('modify', {
+					'marker': [{
+						'addr': [
+							loc.coords.latitude,
+							loc.coords.longitude
+						]
+					}]
+				});
+			},
+			'direction': [direction]
+		});
+	});
+	
 	$.fn.tinyMapConfigure({
 		// Google Maps API URL
 		'api': '//maps.googleapis.com/maps/api/js',
@@ -41,51 +92,6 @@ $(function() {
 			mark[markCount] = tempMark;
 			markCount++;
 		}
-	});
-	
-	//Route Plan路徑規劃
-	$('.map').tinyMap({
-		'center': '臺北市大安區羅斯福路四段一號',
-		'zoom': 13,
-		'autoLocation': function (loc) {
-			$(".map").tinyMap('modify', {
-				'marker': [{
-					'addr': [
-						loc.coords.latitude,
-						loc.coords.longitude
-					]
-				}]
-			});
-		},
-		'direction': [{
-            'from': '臺北市大安區羅斯福路四段一號',
-            'to': '臺北市北平西路三號',
-            'travel': 'transit',
-			'panel': $("#panel"),
-            // 自訂路徑顏色
-            'polylineOptions': {
-                'strokeColor': '#CCCC00',
-                'strokeOpacity': 0.5
-            },
-			'renderAll': true,
-            'requestExtra': {
-                'provideRouteAlternatives': true
-            },
-			'event' : {
-                'directions_changed': function () {
-                    var direction = this.getDirections();
-					$("#directions").empty();
-                    // direction.routes[n] 表示第 N 段規劃的路徑
-                    // direction.routes[n].legs 該路段細節
-					if (direction) {
-						console.log(direction);
-						$("#directions").append("<p>距離：" + direction.routes[0].legs[0].distance.text + "</p>")
-							.append("<p>旅行時間：" + direction.routes[0].legs[0].duration.text + "</p>");
-                    }
-                }
-            }
-
-        }]
 	});
 
 	/*
