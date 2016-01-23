@@ -9,6 +9,7 @@ $(function() {
 
 	var mark = [];
 	var centerPos = ['25.039065815333753', '121.56097412109375'];
+	var defaultFrom = "臺北市大安區羅斯福路四段一號";
 	
 	$("#submit").click(function(event) {
 		event.preventDefault();
@@ -89,11 +90,15 @@ $(function() {
 	});
 	
 	//Route Plan路徑規劃
+	$("#from").val(defaultFrom);
+
 	$('.map').tinyMap({
-		'center': '臺北市大安區羅斯福路四段一號',
+		'center': defaultFrom,
 		'zoom': 13,
 		'autoLocation': function (loc) {
+			$("#from").val("起點目前為使用者位置");
 			$(".map").tinyMap('modify', {
+				'center': [loc.coords.latitude,loc.coords.longitude],
 				'marker': [{
 					'addr': [
 						loc.coords.latitude,
@@ -105,11 +110,19 @@ $(function() {
 	});
 	
 	$("#from").change(function() {
+		if($("#from").val() === "起點目前為使用者位置")
+			return false;
 		$('.map').tinyMap('query', $("#from").val(), function (addr) {
-			console.log(addr);
-			//console.log(addr.geometry.location.lat()); // Latitude
-			//console.log(addr.geometry.location.lng()); // Longitude
+			if(addr) {
+				$("#from-list").empty();
+				$("#from-list").append("<li>可能起點地址：</li>");
+				$("#from-list").append("<li>" + addr.formatted_address + "</li>");
+			}
 		});
+	});
+	
+	$("#to").change(function() {
+		
 	});
 	
 	//get mrt mark
