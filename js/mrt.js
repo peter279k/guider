@@ -8,11 +8,20 @@ $(function() {
 		var fromText = $("#from").val();
 		var toText = $("#to").val();
 		var travel = $("#mode").val();
+		
 		if(travel === "CHOOSE-TRANSPORT") {
 			alert("請選擇交通方式！");
 			return false;
 		}
-		
+		if(fromText === "") {
+			alert("請輸入起點地址！");
+			return false;
+		}
+		if(toText === "") {
+			alert("請輸入終點地址！");
+			return false;
+		}
+
 		var direction = {
 			'from': fromText,
 			'to': toText,
