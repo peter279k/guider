@@ -56,7 +56,8 @@ $(function() {
 			}
 		};
 
-		$('.map').tinyMap('clear').tinyMap('modify', {
+		$('.map').tinyMap('clear', 'marker');
+		$('.map')..tinyMap('modify', {
 			'direction': [direction]
 		});
 	});
