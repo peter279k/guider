@@ -1,5 +1,12 @@
 $(function() {
-	// 執行 tinyMap 前可使用 $.tinyMapConfigure 進行 API 的設定。
+	// 執行 tinyMap 前可使用 $.fn.tinyMapConfigure 進行 API 的設定。
+	alertify.alertify.set({
+		labels:{
+			ok: "確定",
+			cancel: "取消"
+		}
+	});
+
 	var mark = [];
 	var centerPos = ['25.039065815333753', '121.56097412109375'];
 	
@@ -10,15 +17,15 @@ $(function() {
 		var travel = $("#mode").val();
 		
 		if(travel === "CHOOSE-TRANSPORT") {
-			alert("請選擇交通方式！");
+			alertify.alertify.alertify.alert("請選擇交通方式！");
 			return false;
 		}
 		if(fromText === "") {
-			alert("請輸入起點地址！");
+			alertify.alert("請輸入起點地址！");
 			return false;
 		}
 		if(toText === "") {
-			alert("請輸入終點地址！");
+			alertify.alert("請輸入終點地址！");
 			return false;
 		}
 
