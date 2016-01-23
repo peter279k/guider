@@ -104,6 +104,12 @@ $(function() {
 		}
 	});
 	
+	$(document).tinyMap('query', '北平三路', function (addr) {
+		console.log(addr);
+		//console.log(addr.geometry.location.lat()); // Latitude
+		//console.log(addr.geometry.location.lng()); // Longitude
+	});
+	
 	//get mrt mark
 	$.get("/guider/mrt/get/exit", function(data) {
 		var result = $.parseJSON(data);
