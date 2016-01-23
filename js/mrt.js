@@ -14,6 +14,8 @@ $(function() {
 	$("#submit").click(function(event) {
 		event.preventDefault();
 		var fromText = $("#from").val();
+		if(fromText === "目前為使用者位置")
+			fromText = centerPos;
 		var toText = $("#to").val();
 
 		if(fromText === "") {
