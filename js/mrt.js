@@ -36,22 +36,10 @@ $(function() {
 			}
 		};
 
-		//Route Plan路徑規劃
-		$('.map').tinyMap({
-			'center': '臺北市大安區羅斯福路四段一號',
-			'zoom': 13,
-			'autoLocation': function (loc) {
-				$(".map").tinyMap('modify', {
-					'marker': [{
-						'addr': [
-							loc.coords.latitude,
-							loc.coords.longitude
-						]
-					}]
-				});
-			},
-			'direction': [direction]
-		});
+		$('.map').tinyMap('clear')
+			.tinyMap('modify', {
+				'direction': [direction]
+			});
 	});
 	
 	$.fn.tinyMapConfigure({
@@ -76,6 +64,22 @@ $(function() {
 		// 預設 '//google‐maps‐utility‐library‐v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel_packed.js'
 		// 建議下載至自有主機，避免讀取延遲造成無法使用。
 		'withLabel': '//google‐maps‐utility‐library‐v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel_packed.js'
+	});
+	
+	//Route Plan路徑規劃
+	$('.map').tinyMap({
+		'center': '臺北市大安區羅斯福路四段一號',
+		'zoom': 13,
+		'autoLocation': function (loc) {
+			$(".map").tinyMap('modify', {
+				'marker': [{
+					'addr': [
+						loc.coords.latitude,
+						loc.coords.longitude
+					]
+				}]
+			});
+		}
 	});
 	
 	//get mrt mark
