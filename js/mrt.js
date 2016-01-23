@@ -7,6 +7,12 @@ $(function() {
 		event.preventDefault();
 		var fromText = $("#from").val();
 		var toText = $("#to").val();
+		var travel = $("#mode").val();
+		if(travel === "CHOOSE-TRANSPORT") {
+			alert("請選擇交通方式！");
+			return false;
+		}
+		
 		var direction = {
 			'from': fromText,
 			'to': toText,
