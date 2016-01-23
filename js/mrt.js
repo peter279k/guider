@@ -117,6 +117,7 @@ $(function() {
 				$("#from-list").empty();
 				$("#from-list").append("<li>可能起點地址：</li>");
 				$("#from-list").append("<li>" + addr.formatted_address + "</li>");
+				$("#from-list").listview("refresh");
 			}
 		});
 	});
