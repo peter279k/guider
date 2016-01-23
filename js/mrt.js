@@ -109,34 +109,6 @@ $(function() {
 		}
 	});
 	
-	var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $("#from").autocomplete({
-      source: availableTags
-    });
-	
 	$("#from").change(function() {
 		if($("#from").val() === "起點目前為使用者位置")
 			return false;
