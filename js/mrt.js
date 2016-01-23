@@ -109,14 +109,14 @@ $(function() {
 		}
 	});
 	
-	$("#from").change(function() {
+	$("#from").on("change", function() {
 		if($("#from").val() === "起點目前為使用者位置")
 			return false;
 		$('.map').tinyMap('query', $("#from").val(), function (addr) {
 			if(addr) {
 				$("#from-list").empty();
 				$("#from-list").append("<p>可能起點地址：</p>");
-				$("#from-list").append("<ol>" + addr.formatted_address + "</ol>");
+				$("#from-list").append("<li>" + addr.formatted_address + "</li>");
 			}
 		});
 	});
