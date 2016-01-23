@@ -59,10 +59,9 @@ $(function() {
 			}
 		};
 
-		$('.map').tinyMap('clear')
-			.tinyMap('modify', {
-				'direction': [direction]
-			});
+		$('.map').tinyMap('clear').tinyMap('modify', {
+			'direction': [direction]
+		});
 	});
 	
 	$.fn.tinyMapConfigure({
@@ -94,11 +93,15 @@ $(function() {
 
 	$('.map').tinyMap({
 		'center': defaultFrom,
+		'marker': [{
+			'addr': centerPos
+		}],
 		'zoom': 13,
 		'autoLocation': function (loc) {
 			$("#from").val("起點目前為使用者位置");
-			$(".map").tinyMap('modify', {
-				'center': [loc.coords.latitude,loc.coords.longitude],
+			centerPos = [loc.coords.latitude,loc.coords.longitude];
+			$(".map").tinyMap("clear").tinyMap('modify', {
+				'center': centerPos,
 				'marker': [{
 					'addr': [
 						loc.coords.latitude,
