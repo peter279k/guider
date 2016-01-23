@@ -1,6 +1,6 @@
 $(function() {
 	// 執行 tinyMap 前可使用 $.fn.tinyMapConfigure 進行 API 的設定。
-	alertify.alertify.set({
+	alertify.set({
 		labels:{
 			ok: "確定",
 			cancel: "取消"
@@ -17,7 +17,7 @@ $(function() {
 		var travel = $("#mode").val();
 		
 		if(travel === "CHOOSE-TRANSPORT") {
-			alertify.alertify.alertify.alert("請選擇交通方式！");
+			alertify.alertify.alert("請選擇交通方式！");
 			return false;
 		}
 		if(fromText === "") {
