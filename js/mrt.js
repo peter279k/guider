@@ -109,16 +109,18 @@ $(function() {
 		}
 	});
 	
-	$("#from").on("change", function() {
+	$("#from").on("keypress", function(e) {
 		if($("#from").val() === "起點目前為使用者位置")
 			return false;
-		$('.map').tinyMap('query', $("#from").val(), function (addr) {
-			if(addr) {
-				$("#from-list").empty();
-				$("#from-list").append("<p>可能起點地址：</p>");
-				$("#from-list").append("<li>" + addr.formatted_address + "</li>");
-			}
-		});
+		if(e.keyCode == 13) {
+			$('.map').tinyMap('query', $("#from").val(), function (addr) {
+				if(addr) {
+					$("#from-list").empty();
+					$("#from-list").append("<p>可能起點地址：</p>");
+					$("#from-list").append("<li>" + addr.formatted_address + "</li>");
+				}
+			});
+		}
 	});
 	
 	$("#to").change(function() {
