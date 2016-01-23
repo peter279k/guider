@@ -23,7 +23,7 @@
 			<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
 				<div class="map"></div>
                 <div data-role="fieldcontain">
-					<h3>模糊查詢，輸入完畢請按 enter鍵！</h3>
+					<h3>模糊查詢，輸入起點或終點後請按 enter 鍵！</h3>
 					<label for="from">請輸入起點：</label>
                     <input type="text" id="from">
                 </div>
@@ -34,6 +34,9 @@
                     <label for="to">請輸入終點：</label>
                     <input type="text" id="to">
                 </div>
+				<div data-role="fieldcontain" data-theme="b">
+					<fieldset id="to-list" data-role="controlgroup"></fieldset>
+				</div>
                 <div data-role="fieldcontain">
                     <label for="mode" class="select">請選擇交通方式：</label>
 						<select name="select-choice-0" id="mode">

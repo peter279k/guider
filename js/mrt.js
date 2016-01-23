@@ -120,14 +120,26 @@ $(function() {
 				if(addr) {
 					$("#from-list").empty();
 					$("#from-list").append("<p>可能起點地址：</p>");
+					$("#from").val(addr.formatted_address);
 					$("#from-list").append("<li>" + addr.formatted_address + "</li>");
 				}
 			});
 		}
 	});
 	
-	$("#to").change(function() {
-		
+	$("#to").on("keypress", function(e) {
+		if($("#to").val() === "")
+			return false;
+		if(e.keyCode == 13) {
+			$('.map').tinyMap('query', $("#to").val(), function (addr) {
+				if(addr) {
+					$("#to-list").empty();
+					$("#to-list").append("<p>可能終點點地址：</p>");
+					$("#to").val(addr.formatted_address);
+					$("#to-list").append("<li>" + addr.formatted_address + "</li>");
+				}
+			});
+		}
 	});
 	
 	//get mrt mark
