@@ -115,8 +115,8 @@ $(function() {
 		$('.map').tinyMap('query', $("#from").val(), function (addr) {
 			if(addr) {
 				$("#from-list").empty();
-				$("#from-list").append("<li>可能起點地址：</li>");
-				$("#from-list").append("<li>" + addr.formatted_address + "</li>");
+				$("#from-list").append("<p>可能起點地址：</p>");
+				$("#from-list").append("<ol>" + addr.formatted_address + "</ol>");
 			}
 		});
 	});
