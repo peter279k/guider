@@ -32,7 +32,17 @@ $(function() {
 				var getBusTime = "";
 				var temp = [];
 
-				console.log(busArr);
+				if(busNo.indexOf("紅") === -1 || busNo.indexOf("橘") === -1 || busNo.indexOf("綠") === -1
+					busNo.indexOf("棕") === -1 || busNo.indexOf("藍") === -1) {
+					busNo = "";
+					for(var index=0;index<busNo.length;index++) {
+						if(isNaN(parseInt(busNo.charAt(index))))
+							continue;
+						if(parseInt(busNo.charAt(index)) <= 9 && parseInt(busNo.charAt(index)) >= 0)
+							busNo += busNo.charAt(index);
+					}
+				}
+
 				for(var index=0;index<routeArray.length;index++) {
 					if(busNo.indexOf(routeArray[index]) !== -1) {
 						busNo = routeArray[index];
