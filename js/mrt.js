@@ -38,6 +38,7 @@ $(function() {
 				'strokeOpacity': 0.5
 			},
 			'renderAll': true,
+			'optimize' : true,
 			'requestExtra': {
 				'provideRouteAlternatives': true
 			},
