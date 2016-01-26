@@ -33,45 +33,46 @@ $(function() {
 				var temp = [];
 
 				console.log(busArr);
-				
-				if(routeArray.indexOf(busNo) !== -1) {
-					//公車幾路
-					busNo = routeArray[routeArray.indexOf(busNo)];
-					
-					//得到公車時間,查詢是否還有公車
-					if(busTime.indexOf("上午") !== -1 && busTime.indexOf("下午") !== -1) {
-						temp = busTime.split("上午");
-						
-						if(temp[0].indexOf("下午")) {
-							temp = temp[0].split("下午");
-						}
-						else {
-							temp = temp[1].split("下午");
-						}
-						
-						getBusTime = temp[0];
+				for(var index=0;index<routeArray.length;index++) {
+					if(busNo.indexOf(routeArray[index]) !== -1) {
+						busNo = routeArray[index];
+						break;
 					}
-					else if(busTime.indexOf("上午") !== -1) {
-						var busTimeArr = busTime.split("上午");
-						getBusTime = busTimeArr[1];
+				}
+
+				//公車幾路
+				busNo = routeArray[routeArray.indexOf(busNo)];
+
+				//得到公車時間,查詢是否還有公車
+				if(busTime.indexOf("上午") !== -1 && busTime.indexOf("下午") !== -1) {
+					temp = busTime.split("上午");
+					
+					if(temp[0].indexOf("下午")) {
+						temp = temp[0].split("下午");
 					}
 					else {
-						var busTimeArr = busTime.split("下午");
-						getBusTime = busTimeArr[1];
+					temp = temp[1].split("下午");
 					}
+						
+					getBusTime = temp[0];
+				}
+				else if(busTime.indexOf("上午") !== -1) {
+					var busTimeArr = busTime.split("上午");
+					getBusTime = busTimeArr[1];
+				}
+				else {
+					var busTimeArr = busTime.split("下午");
+					getBusTime = busTimeArr[1];
+				}
 					
-					//console.log(getBusTime);
-					//console.log(busNo);
-					//查詢公車目前距離時間,
-					/*
+				//console.log(getBusTime);
+				//console.log(busNo);
+				//查詢公車目前距離時間,
+				/*
 					$.get("", function(data) {
 					
 					});
-					*/
-				}
-				else {
-					//nothing
-				}
+				*/
 			}
 			
 			alertify.alert("修改完成！");
