@@ -45,7 +45,7 @@ $(function() {
 				'strokeColor': '#CCCC00',
 				'strokeOpacity': 0.5
 			},
-			'renderAll': false,
+			'renderAll': true,
 			'optimize' : true,
 			'requestExtra': {
 				'provideRouteAlternatives': false
