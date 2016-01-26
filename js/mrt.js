@@ -48,7 +48,7 @@ $(function() {
 			'renderAll': true,
 			'optimize' : true,
 			'requestExtra': {
-				'provideRouteAlternatives': false
+				'provideRouteAlternatives': true
 			},
 			'event' : {
 				'directions_changed': function () {
