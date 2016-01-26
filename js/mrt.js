@@ -32,6 +32,9 @@ $(function() {
 				var getBusTime = "";
 				var temp = [];
 
+				console.log(getBusTime);
+				console.log(busNo);
+				
 				if(routeArray.indexOf(busNo) !== -1) {
 					//公車幾路
 					busNo = routeArray[routeArray.indexOf(busNo)];
@@ -58,8 +61,8 @@ $(function() {
 						getBusTime = busTimeArr[1];
 					}
 					
-					console.log(getBusTime);
-					console.log(busNo);
+					//console.log(getBusTime);
+					//console.log(busNo);
 					//查詢公車目前距離時間,
 					/*
 					$.get("", function(data) {
