@@ -43,12 +43,14 @@ $(function() {
 					}
 				}
 
+				/*
 				for(var index=0;index<routeArray.length;index++) {
 					if(busNo.indexOf(routeArray[index]) !== -1) {
 						busNo = routeArray[index];
 						break;
 					}
 				}
+				*/
 
 				//公車幾路
 
