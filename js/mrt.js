@@ -41,7 +41,6 @@ $(function() {
 				}
 
 				//公車幾路
-				busNo = routeArray[routeArray.indexOf(busNo)];
 
 				//得到公車時間,查詢是否還有公車
 				if(busTime.indexOf("上午") !== -1 && busTime.indexOf("下午") !== -1) {
