@@ -20,12 +20,11 @@ $(function() {
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
 			console.log(str);
-			if(str.indexOf("步行") !== -1 || str === "–,") {
+			if(str.indexOf("步行") !== -1) {
 				
 			}
-			else {
-				
-			}
+			if(str === "– (,)")
+				return false;
 		});
 	});
 	
