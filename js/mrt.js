@@ -18,7 +18,10 @@ $(function() {
 		}
 
 		$("td[class='adp-substep']").each(function(index) {
-			console.log(index + "text: " + $(this).text());
+			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
+			if(str.indexOf("步行") !== -1 || str === "–,")
+				return false;
+			console.log(str);
 		});
 	});
 	
