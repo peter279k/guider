@@ -32,8 +32,7 @@ $(function() {
 				var getBusTime = "";
 				var temp = [];
 
-				console.log(getBusTime);
-				console.log(busNo);
+				console.log(busArr);
 				
 				if(routeArray.indexOf(busNo) !== -1) {
 					//公車幾路
