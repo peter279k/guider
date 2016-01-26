@@ -22,8 +22,8 @@ $(function() {
 
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
-			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1) {
-				//nothing
+			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("– (,)") !== -1) {
+				//nothing to do
 			}
 			else {
 				var busArr = str.split("巴士");
