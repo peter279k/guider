@@ -12,6 +12,10 @@ $(function() {
 	var defaultFrom = "臺北市大安區羅斯福路四段一號";
 	
 	$("#modify-route").click(function() {
+		if($("#panel").html().length === 0) {
+			alertify.alert("Sorry！沒有路線可修正！");
+			return false;
+		}
 		console.log($("#panel").html());
 	});
 	
