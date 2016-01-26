@@ -16,7 +16,10 @@ $(function() {
 			alertify.alert("Sorry！沒有路線可修正！");
 			return false;
 		}
-		console.log($("td[class='adp-substep']").html());
+
+		$("td[class='adp-substep']").each(function(index) {
+			console.log(index + "text: " + $(this).text());
+		});
 	});
 	
 	$("#submit").click(function(event) {
