@@ -37,10 +37,10 @@ $(function() {
 				'strokeColor': '#CCCC00',
 				'strokeOpacity': 0.5
 			},
-			'renderAll': true,
+			'renderAll': false,
 			'optimize' : true,
 			'requestExtra': {
-				'provideRouteAlternatives': true
+				'provideRouteAlternatives': false
 			},
 			'event' : {
 				'directions_changed': function () {
