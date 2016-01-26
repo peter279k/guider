@@ -11,8 +11,8 @@ $(function() {
 	var centerPos = ['25.039065815333753', '121.56097412109375'];
 	var defaultFrom = "臺北市大安區羅斯福路四段一號";
 	
-	$("#modify").click(function() {
-		
+	$("#modify-route").click(function() {
+		console.log($("#panel").html());
 	});
 	
 	$("#submit").click(function(event) {
