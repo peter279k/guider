@@ -50,6 +50,7 @@ $(function() {
 					// direction.routes[n].legs 該路段細節
 					if (direction) {
 						console.log(direction);
+						console.log($("#panel").text());
 						$("#directions").append("<p>距離：" + direction.routes[0].legs[0].distance.text + "</p>")
 							.append("<p>旅行時間：" + direction.routes[0].legs[0].duration.text + "</p>");
 					}
