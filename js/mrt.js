@@ -74,7 +74,6 @@ $(function() {
 
 			if(str === "– (,)")
 				return false;
-			console.log(str);
 		});
 	});
 	
