@@ -98,7 +98,8 @@ $(function() {
 		'autoLocation': function (loc) {
 			$("#from").val("目前為使用者位置");
 			centerPos = [loc.coords.latitude,loc.coords.longitude];
-			$(".map").tinyMap("clear").tinyMap('modify', {
+			$(".map").tinyMap('clear');
+			$(".map").tinyMap('modify', {
 				'center': centerPos,
 				'marker': [{
 					'addr': [
