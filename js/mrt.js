@@ -28,29 +28,27 @@ $(function() {
 			else {
 				var busArr = str.split("巴士");
 				var busNo = busArr[0];
+				var busNum = "";
 				var busTime = busArr[1];
 				var getBusTime = "";
 				var temp = [];
 
 				if(busNo.indexOf("紅") === -1 || busNo.indexOf("橘") === -1 || busNo.indexOf("綠") === -1 ||
 					busNo.indexOf("棕") === -1 || busNo.indexOf("藍") === -1) {
-					busNo = "";
 					for(var index=0;index<busNo.length;index++) {
 						if(isNaN(parseInt(busNo.charAt(index))))
 							continue;
 						if(parseInt(busNo.charAt(index)) <= 9 && parseInt(busNo.charAt(index)) >= 0)
-							busNo += busNo.charAt(index);
+							busNum += busNo.charAt(index);
 					}
 				}
-
-				/*
+			
 				for(var index=0;index<routeArray.length;index++) {
-					if(busNo.indexOf(routeArray[index]) !== -1) {
+					if(busNum.indexOf(routeArray[index]) !== -1) {
 						busNo = routeArray[index];
 						break;
 					}
 				}
-				*/
 
 				//公車幾路
 
