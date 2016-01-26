@@ -32,26 +32,27 @@ $(function() {
 				var busTime = busArr[1];
 				var getBusTime = "";
 				var temp = [];
-
-				if(busNo.indexOf("紅") === -1 || busNo.indexOf("橘") === -1 || busNo.indexOf("綠") === -1 ||
-					busNo.indexOf("棕") === -1 || busNo.indexOf("藍") === -1) {
-					for(var index=0;index<busNo.length;index++) {
-						if(isNaN(parseInt(busNo.charAt(index))))
-							continue;
-						if(parseInt(busNo.charAt(index)) <= 9 && parseInt(busNo.charAt(index)) >= 0)
-							busNum += busNo.charAt(index);
-					}
+				
+				for(var index=0;index<busNo.length;index++) {
+					if(isNaN(parseInt(busNo.charAt(index))))
+						continue;
+					if(parseInt(busNo.charAt(index)) <= 9 && parseInt(busNo.charAt(index)) >= 0)
+						busNum += busNo.charAt(index);
 				}
-			
-				for(var index=0;index<routeArray.length;index++) {
-					if(busNum.indexOf(routeArray[index]) !== -1) {
-						busNo = routeArray[index];
-						break;
-					}
-				}
+				
+				if(busNo.indexOf("紅") !== -1)
+					busNum = "紅" + busNum;
+				if(busNo.indexOf("橘") === -1)
+					busNum = "橘" + busNum;
+				if(busNo.indexOf("綠") === -1)
+					busNum = "綠" + busNum;
+				if(busNo.indexOf("棕") === -1)
+					busNum = "棕" + busNum;
+				if(busNo.indexOf("藍") === -1)
+					busNum = "藍" + busNum;
 
 				//公車幾路
-
+				
 				//得到公車時間,查詢是否還有公車
 				if(busTime.indexOf("上午") !== -1 && busTime.indexOf("下午") !== -1) {
 					temp = busTime.split("上午");
@@ -75,7 +76,7 @@ $(function() {
 				}
 					
 				console.log(getBusTime);
-				console.log(busNo);
+				console.log(busNum);
 				//查詢公車目前距離時間,
 				/*
 					$.get("", function(data) {
