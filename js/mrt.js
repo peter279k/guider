@@ -10,6 +10,7 @@ $(function() {
 	var mark = [];
 	var centerPos = ['25.039065815333753', '121.56097412109375'];
 	var defaultFrom = "臺北市大安區羅斯福路四段一號";
+	var modify = null;
 	
 	$("#modify-route").click(function() {
 		if($("#panel").html().length === 0) {
@@ -19,9 +20,14 @@ $(function() {
 
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
-			if(str.indexOf("步行") !== -1) {
-				
+			if(str.indexOf("步行") !== -1 || str.indexOf("火車")) {
+				//nothing
 			}
+			
+			$.get("", function(data) {
+				
+			});
+
 			if(str === "– (,)")
 				return false;
 			console.log(str);
@@ -30,6 +36,7 @@ $(function() {
 	
 	$("#submit").click(function(event) {
 		event.preventDefault();
+		$("#panel").empty();
 		var fromText = $("#from").val();
 		if(fromText === "目前為使用者位置")
 			fromText = centerPos;
