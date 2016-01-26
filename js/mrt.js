@@ -16,7 +16,7 @@ $(function() {
 			alertify.alert("Sorry！沒有路線可修正！");
 			return false;
 		}
-		console.log($("td.adp-substep").html());
+		console.log($("td[class='adp-substep']").html());
 	});
 	
 	$("#submit").click(function(event) {
