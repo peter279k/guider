@@ -22,7 +22,7 @@ $(function() {
 
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
-			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1) {
+			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("– (,)") !== -1) {
 				//nothing to do
 			}
 			else {
@@ -73,9 +73,8 @@ $(function() {
 					//nothing
 				}
 			}
-
-			if(str === "– (,)")
-				return false;
+			
+			alertify.alert("修改完成！");
 		});
 	});
 	
