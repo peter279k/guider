@@ -34,6 +34,7 @@ $(function() {
 
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
+			console.log(str);
 			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("– (,)") !== -1) {
 				//nothing to do
 			}
@@ -42,7 +43,6 @@ $(function() {
 				var busNo = busArr[0];
 				var busNum = "";
 				var busTime = busArr[1];
-				console.log(busTime);
 				var getBusTime = "";
 				var temp = [];
 				
