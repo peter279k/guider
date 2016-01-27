@@ -36,7 +36,7 @@ $(function() {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
 			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("捷運") !== -1 || str.indexOf("– (,)") !== -1) {
 				//nothing to do
-				alertify.alert("路線修改完成！");
+				//alertify.alert("路線修改完成！");
 			}
 			else {
 				var busArr = str.split("巴士");
