@@ -13,6 +13,8 @@ $(function() {
 	var centerPos = ['25.039065815333753', '121.56097412109375'];
 	var defaultFrom = "臺北市大安區羅斯福路四段一號";
 	var modify = null;
+	var placeName = [];
+	var terminalName = [];
 	
 	$("#modify-route").click(function() {
 		if($("#panel").html().length === 0) {
@@ -20,7 +22,15 @@ $(function() {
 			return false;
 		}
 		
-		console.log($("#panel").html());
+		$("b[jstcache='41']").each(function(index) {
+			placeName[index] = $(this).text();
+		});
+		
+		$("span[jstcache='46']").each(function(index) {
+			var str = $(this).text();
+			str = str.replace("巴士", "").replace("開往", "").replace(/ /g, "");
+			terminalName[index] = $(this).text();
+		});
 
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
@@ -42,6 +52,7 @@ $(function() {
 						busNum += busNo.charAt(index);
 				}
 				
+				//modify bus number,公車幾路
 				if(busNo.indexOf("紅") !== -1)
 					busNum = "紅" + busNum;
 				if(busNo.indexOf("橘") !== -1)
@@ -62,8 +73,6 @@ $(function() {
 					busNum = "敦化幹線";
 				if(busNo.indexOf("重慶幹線") !== -1)
 					busNum = "重慶幹線";
-				
-				//公車幾路
 				
 				//得到公車時間,查詢是否還有公車
 				if(busTime.indexOf("上午") !== -1 && busTime.indexOf("下午") !== -1) {
@@ -87,20 +96,48 @@ $(function() {
 					getBusTime = busTimeArr[1];
 				}
 				
-				getBusTime = getBusTime.replace(/-/g, "");
+				getBusTime = getBusTime.replace("-", "");
 				
 				console.log(getBusTime);
 				console.log(busNum);
 				
+				//上車站名
+				var startName = placeName[index];
+				var startIndex = 0;
+				
+				//下車站名
+				var endName = terminalName[index];
+				var endIndex = 0;
+				
+				//確認 goBack
+				var goBack = 0;
+
 				//查詢公車目前距離時間,query 目前公車(站名)
 				busNum = encodeURIComponent(busNum);
 				
-				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=265%E5%8D%80&goBack=0", function(data) {
+				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
+					//var xmlData = $.parseXML(data);
+					$(data).find("EstimateTimeModel").each(function(index) {
+						if($(this).children('StopNameZh').text() === startName)
+							var startIndex = index;
+						if($(this).children('StopNameZh').text() === endName)
+							var endIndex = index;
+					});
 					
+					if((endIndex - startIndex) < 0) {
+						goBack = 1;
+					}
+					
+					console.log(goBack);
+					$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
+						$(data).find("EstimateTimeModel").each(function(index) {
+							
+						});
+					});
 				});
 			}
 			
-			alertify.alert("修改完成！");
+			alert("修改完成！");
 		});
 	});
 	
