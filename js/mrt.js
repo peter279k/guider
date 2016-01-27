@@ -19,6 +19,8 @@ $(function() {
 			alertify.alert("Sorry！沒有路線可修正！");
 			return false;
 		}
+		
+		console.log($("#panel").html());
 
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
@@ -42,15 +44,25 @@ $(function() {
 				
 				if(busNo.indexOf("紅") !== -1)
 					busNum = "紅" + busNum;
-				if(busNo.indexOf("橘") === -1)
+				if(busNo.indexOf("橘") !== -1)
 					busNum = "橘" + busNum;
-				if(busNo.indexOf("綠") === -1)
+				if(busNo.indexOf("綠") !== -1)
 					busNum = "綠" + busNum;
-				if(busNo.indexOf("棕") === -1)
+				if(busNo.indexOf("棕") !== -1)
 					busNum = "棕" + busNum;
-				if(busNo.indexOf("藍") === -1)
+				if(busNo.indexOf("藍") !== -1)
 					busNum = "藍" + busNum;
-
+				if(busNo.indexOf("東") !== -1)
+					busNum = busNum + "東";
+				if(busNo.indexOf("南") !== -1)
+					busNum = busNum + "南";
+				if(busNo.indexOf("小") !== -1)
+					busNum = "小" + busNum;
+				if(busNo.indexOf("敦化幹線") !== -1)
+					busNum = "敦化幹線";
+				if(busNo.indexOf("重慶幹線") !== -1)
+					busNum = "重慶幹線";
+				
 				//公車幾路
 				
 				//得到公車時間,查詢是否還有公車
@@ -74,15 +86,18 @@ $(function() {
 					var busTimeArr = busTime.split("下午");
 					getBusTime = busTimeArr[1];
 				}
-					
+				
+				getBusTime = getBusTime.replace(/-/g, "");
+				
 				console.log(getBusTime);
 				console.log(busNum);
-				//查詢公車目前距離時間,
-				/*
-					$.get("", function(data) {
+				
+				//查詢公車目前距離時間,query 目前公車(站名)
+				busNum = encodeURIComponent(busNum);
+				
+				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=265%E5%8D%80&goBack=0", function(data) {
 					
-					});
-				*/
+				});
 			}
 			
 			alertify.alert("修改完成！");

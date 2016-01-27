@@ -32,6 +32,13 @@
 
 		return $response;
 	});
+	
+	$app -> get('get/mrt/{mrtName}/{goBack}', function($request, $response, $args) {
+		//http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=55ec6d6e-dc5c-4268-a725-d04cc262172b
+		$mrtName = htmlentities($args['mrtName']); //捷運站名
+		$goBack = htmlentities($args['goBack']); //往哪個方向
+		
+	});
 
 	$app->run();
 ?>
