@@ -109,6 +109,7 @@ $(function() {
 				
 				//下車站名
 				var endName = terminalName[stepIndex];
+				endName = endName.replace("巴士 ", "");
 				var endIndex = 0;
 				
 				//確認 goBack
@@ -116,18 +117,18 @@ $(function() {
 
 				//查詢公車目前距離時間,query 目前公車(站名)
 				busNum = encodeURIComponent(busNum);
-				console.log(startName);
-				console.log(endName);
 
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//checkGoBack();
 					for(var index=0;index<data.length;index++) {
-						if(data[index].StopNameZh === startName)
+						if(startName.indexOf(data[index].StopNameZh) !== -1)
 							startIndex = index;
-						if(data[index].StopNameZh === endName)
+						if(endName.indexOf(data[index].StopNameZh) !== -1)
 							endIndex = index;
 					}
-					//console.log(goBack);
+					
+					console.log(startIndex);
+					console.log(endIndex);
 					/*
 					$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
 						$(data).find("EstimateTimeModel").each(function(index) {
