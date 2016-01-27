@@ -15,6 +15,7 @@ $(function() {
 	var modify = null;
 	var placeName = [];
 	var terminalName = [];
+	var modifyBus = [];
 	var placeIndex = 0;
 	
 	$("#modify-route").click(function() {
@@ -126,13 +127,27 @@ $(function() {
 						if(endName.indexOf(data[index].StopNameZh) !== -1)
 							endIndex = index;
 					}
-					console.log(busNum);
-					
-					/*
+
 					if((endIndex - startIndex) < 0) {
-						console.log(busNum);
 						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
-							
+							console.log($(this).text());
+							for(var index=0;index<data.length;index++) {
+								if(startName.indexOf(data[index].StopNameZh) !== -1) {
+									if(data[index].EstimateTime === -1) {
+										modifyBus[placeIndex] = "目前未知時間";
+									}
+									else if(data[index].EstimateTime === 0) {
+										modifyBus[placeIndex] = "公車已過";
+
+									}
+									else {
+										var sec = data[index].EstimateTime;
+										var mins = sec / 60;
+										modifyBus[placeIndex] = "公車還有" + mins + "分鐘到站";
+									}
+								}
+								
+							}
 						});
 					}
 					else {
@@ -143,7 +158,6 @@ $(function() {
 							});
 						});
 					}
-					*/
 				});
 			}
 		});
