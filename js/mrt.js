@@ -34,9 +34,9 @@ $(function() {
 
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
-			console.log(str);
-			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("– (,)") !== -1) {
+			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("捷運") !== -1 || str.indexOf("– (,)") !== -1) {
 				//nothing to do
+				alertify.alert("路線修改完成！");
 			}
 			else {
 				var busArr = str.split("巴士");
@@ -119,6 +119,7 @@ $(function() {
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//convert XML to JSON
 					var result = $.xml2json(data);
+					//checkGoBack();
 					console.log(result);
 					//console.log(goBack);
 					/*
@@ -131,8 +132,6 @@ $(function() {
 				});
 			}
 		});
-		
-		alert("修改完成！");
 	});
 	
 	$("#submit").click(function(event) {
