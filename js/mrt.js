@@ -115,18 +115,18 @@ $(function() {
 
 				//查詢公車目前距離時間,query 目前公車(站名)
 				busNum = encodeURIComponent(busNum);
-				console.log("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0");
+				console.log(startName);
+				console.log(endName);
 				
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//checkGoBack();
 					for(var index=0;index<data.length;index++) {
+						console.log(data[index].StopNameZh);
 						if(data[index].StopNameZh === startName)
 							startIndex = index;
 						if(data[index].StopNameZh === endName)
 							endIndex = index;
 					}
-					console.log(startIndex);
-					console.log(endIndex);
 					//console.log(goBack);
 					/*
 					$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
