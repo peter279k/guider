@@ -116,29 +116,22 @@ $(function() {
 				busNum = encodeURIComponent(busNum);
 				
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
-					//var xmlData = $.parseXML(data);
-					$(data).find("EstimateTimeModel").each(function(index) {
-						if($(this).children('StopNameZh').text() === startName)
-							var startIndex = index;
-						if($(this).children('StopNameZh').text() === endName)
-							var endIndex = index;
-					});
-					
-					if((endIndex - startIndex) < 0) {
-						goBack = 1;
-					}
-					
-					console.log(goBack);
+					//convert XML to JSON
+					var result = $.xml2json(data);
+					console.log(result);
+					//console.log(goBack);
+					/*
 					$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
 						$(data).find("EstimateTimeModel").each(function(index) {
 							
 						});
 					});
+					*/
 				});
 			}
-			
-			alert("修改完成！");
 		});
+		
+		alert("修改完成！");
 	});
 	
 	$("#submit").click(function(event) {
