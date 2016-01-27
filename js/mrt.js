@@ -118,8 +118,7 @@ $(function() {
 				busNum = encodeURIComponent(busNum);
 				console.log(startName);
 				console.log(endName);
-				
-				for(var 0)
+
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//checkGoBack();
 					for(var index=0;index<data.length;index++) {
