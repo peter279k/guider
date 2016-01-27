@@ -118,11 +118,9 @@ $(function() {
 				console.log("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0");
 				
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
-					//convert XML to JSON
-					var result = $.xml2json(data);
 					//checkGoBack();
 					console.log(result);
-					console.log(data);
+					console.log(data.length);
 					//console.log(goBack);
 					/*
 					$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
