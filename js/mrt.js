@@ -119,7 +119,6 @@ $(function() {
 				
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//checkGoBack();
-					console.log(result);
 					console.log(data.length);
 					//console.log(goBack);
 					/*
