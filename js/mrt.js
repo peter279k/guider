@@ -121,6 +121,7 @@ $(function() {
 					var result = $.xml2json(data);
 					//checkGoBack();
 					console.log(result);
+					console.log(data);
 					//console.log(goBack);
 					/*
 					$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
