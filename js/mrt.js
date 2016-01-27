@@ -126,15 +126,23 @@ $(function() {
 						if(endName.indexOf(data[index].StopNameZh) !== -1)
 							endIndex = index;
 					}
+					console.log(busNum);
 					
-					console.log(startIndex);
-					console.log(endIndex);
 					/*
-					$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
-						$(data).find("EstimateTimeModel").each(function(index) {
+					if((endIndex - startIndex) < 0) {
+						console.log(busNum);
+						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
 							
 						});
-					});
+					}
+					else {
+						goBack = 1;
+						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
+							$(data).find("EstimateTimeModel").each(function(index) {
+								
+							});
+						});
+					}
 					*/
 				});
 			}
