@@ -34,7 +34,7 @@ $(function() {
 
 		$("td[class='adp-substep']").each(function(index) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
-			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("捷運") !== -1 || str.indexOf("– (,)") !== -1) {
+			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("地下鐵") !== -1 || str.indexOf("– (,)") !== -1) {
 				//nothing to do
 				//alertify.alert("路線修改完成！");
 			}
@@ -85,7 +85,7 @@ $(function() {
 					else {
 					temp = temp[1].split("下午");
 					}
-						
+
 					getBusTime = temp[0];
 				}
 				else if(busTime.indexOf("上午") !== -1) {
