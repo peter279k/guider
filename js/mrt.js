@@ -119,7 +119,14 @@ $(function() {
 				
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//checkGoBack();
-					console.log(data.length);
+					for(var index=0;index<data.length;index++) {
+						if(data[index].StopNameZh === startName)
+							startIndex = index;
+						if(data[index].StopNameZh === endName)
+							endIndex = index;
+					}
+					console.log(startIndex);
+					console.log(endIndex);
 					//console.log(goBack);
 					/*
 					$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
