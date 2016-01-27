@@ -35,6 +35,7 @@ $(function() {
 		});
 
 		$("td[class='adp-substep']").each(function(stepIndex) {
+			var strHTML = $(this).html();
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
 			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("地下鐵") !== -1 || str.indexOf("– (,)") !== -1) {
 				//nothing to do
@@ -127,11 +128,9 @@ $(function() {
 						if(endName.indexOf(data[index].StopNameZh) !== -1)
 							endIndex = index;
 					}
-					console.log(endIndex);
-					console.log(startIndex);
+
 					if((endIndex - startIndex) > 0) {
 						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
-							console.log($(this).text());
 							for(var index=0;index<data.length;index++) {
 								if(startName.indexOf(data[index].StopNameZh) !== -1) {
 									if(data[index].EstimateTime === -1) {
@@ -139,7 +138,6 @@ $(function() {
 									}
 									else if(data[index].EstimateTime === 0) {
 										modifyBus[placeIndex] = "公車已過";
-
 									}
 									else {
 										var sec = data[index].EstimateTime;
@@ -161,6 +159,10 @@ $(function() {
 					}
 				});
 			}
+		});
+
+		$("div[jstcache='0']").each(function(index) {
+			console.log(modifyBus);
 		});
 	});
 	
