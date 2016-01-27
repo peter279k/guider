@@ -42,6 +42,7 @@ $(function() {
 				var busNo = busArr[0];
 				var busNum = "";
 				var busTime = busArr[1];
+				console.log(busTime);
 				var getBusTime = "";
 				var temp = [];
 				
