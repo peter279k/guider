@@ -115,6 +115,7 @@ $(function() {
 
 				//查詢公車目前距離時間,query 目前公車(站名)
 				busNum = encodeURIComponent(busNum);
+				console.log("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0");
 				
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//convert XML to JSON
