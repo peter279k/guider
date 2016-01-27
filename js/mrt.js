@@ -129,7 +129,7 @@ $(function() {
 					}
 					console.log(endIndex);
 					console.log(startIndex);
-					if((endIndex - startIndex) < 0) {
+					if((endIndex - startIndex) > 0) {
 						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
 							console.log($(this).text());
 							for(var index=0;index<data.length;index++) {
