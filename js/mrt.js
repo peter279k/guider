@@ -15,6 +15,7 @@ $(function() {
 	var modify = null;
 	var placeName = [];
 	var terminalName = [];
+	var placeIndex = 0;
 	
 	$("#modify-route").click(function() {
 		if($("#panel").html().length === 0) {
@@ -23,7 +24,6 @@ $(function() {
 		}
 		
 		$("b[jstcache='41']").each(function(index) {
-			console.log($(this).text());
 			placeName[index] = $(this).text();
 		});
 		
@@ -33,7 +33,7 @@ $(function() {
 			terminalName[index] = $(this).text();
 		});
 
-		$("td[class='adp-substep']").each(function(index) {
+		$("td[class='adp-substep']").each(function(stepIndex) {
 			var str = $(this).text().replace(/ /g, "").replace(/(, )/g, ",");
 			if(str.indexOf("步行") !== -1 || str.indexOf("火車") !== -1 || str.indexOf("地下鐵") !== -1 || str.indexOf("– (,)") !== -1) {
 				//nothing to do
@@ -104,11 +104,11 @@ $(function() {
 				console.log(busNum);
 				
 				//上車站名
-				var startName = placeName[index];
+				var startName = placeName[stepIndex];
 				var startIndex = 0;
 				
 				//下車站名
-				var endName = terminalName[index];
+				var endName = terminalName[stepIndex];
 				var endIndex = 0;
 				
 				//確認 goBack
@@ -119,6 +119,7 @@ $(function() {
 				console.log(startName);
 				console.log(endName);
 				
+				for(var 0)
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//checkGoBack();
 					for(var index=0;index<data.length;index++) {
