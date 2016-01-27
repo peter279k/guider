@@ -23,6 +23,7 @@ $(function() {
 		}
 		
 		$("b[jstcache='41']").each(function(index) {
+			console.log($(this).text());
 			placeName[index] = $(this).text();
 		});
 		
@@ -121,7 +122,6 @@ $(function() {
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
 					//checkGoBack();
 					for(var index=0;index<data.length;index++) {
-						console.log(data[index].StopNameZh);
 						if(data[index].StopNameZh === startName)
 							startIndex = index;
 						if(data[index].StopNameZh === endName)
