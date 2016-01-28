@@ -24,11 +24,11 @@ $(function() {
 			return false;
 		}
 		
-		$("b[jstcache='41']").each(function(index) {
+		$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
 			placeName[index] = $(this).text();
 		});
 		
-		$("span[jstcache='46']").each(function(index) {
+		$("span[jscontent='$this.instructions']").each(function(index) {
 			var str = $(this).text();
 			str = str.replace("巴士", "").replace("開往", "").replace(/ /g, "");
 			terminalName[index] = $(this).text();
@@ -357,7 +357,7 @@ $(function() {
 });
 
 function modifyBusStyle(modifyBus) {
-	$("b[jstcache='41']").each(function(index) {
+	$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
 		if(modifyBus[index]) {
 			//strike or tag some message
 			$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
