@@ -381,6 +381,29 @@ $(function() {
 		'marker': mark
 	});
 	*/
+	$(".map").tinyMap({
+		// Map center
+		'center': centerPos,
+		// or 'center': 'lat, lng'
+		// or 'center': [lat, lng]
+		// or 'center': 'ADDRESS'
+		// or 'center': 'N48°45.5952  E20°59.976' // WGS84 format
+		'zoom': 14,
+		'marker': [
+			{
+				'addr': ['25.039065815333753', '121.56097412109375'],
+				'text': '<strong>YouBike Test icon</strong>',
+				'newLabel': 'YouBike',
+				// 自訂外部圖示
+				'icon': {
+					'url': 'http://i.imgur.com/MdhMalH.png',
+					'scaledSize': [48, 48]
+				},
+				// 動畫效果
+				'animation': 'DROP'
+			}
+		]
+	});
 });
 
 function modifyBusStyle(modifyBus, stepIndex) {
