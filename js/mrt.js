@@ -111,8 +111,7 @@ $(function() {
 				
 				//下車站名
 				var endName = terminalName[stepIndex];
-				endName = endName.replace("巴士 ", "");
-				console.log(endName);
+				endName = endName.replace("巴士 開往", "");
 				var endIndex = 0;
 				
 				//確認 goBack
