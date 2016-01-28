@@ -134,6 +134,7 @@ $(function() {
 					console.log(endIndex);
 
 					if((endIndex - startIndex) > 0) {
+						goBack = 1;
 						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
 							for(var index=0;index<data.length;index++) {
 								if(startName.indexOf(data[index].StopNameZh) !== -1) {
@@ -163,7 +164,7 @@ $(function() {
 						});
 					}
 					else {
-						goBack = 1;
+						goBack = 0;
 						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
 							$(data).find("EstimateTimeModel").each(function(index) {
 								
