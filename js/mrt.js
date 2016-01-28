@@ -113,7 +113,6 @@ $(function() {
 				
 				//上車站名
 				var startName = placeName[stepIndex];
-				console.log(placeName);
 				var startIndex = 0;
 				
 				//下車站名
@@ -138,8 +137,6 @@ $(function() {
 						if(endName.indexOf(data[index].StopNameZh) !== -1 || endName === data[index].StopNameZh)
 							endIndex = index;
 					}
-					console.log(startIndex);
-					console.log(endIndex);
 
 					if((endIndex - startIndex) < 0) {
 						goBack = 0;
@@ -196,10 +193,12 @@ $(function() {
 								
 							}
 							
-							modifyBusStyle(modifyBus, placeIndex);
-							modifyYouBikeStyle(modifyYouBike, placeIndex);
+							modifyBusStyle(modifyBus);
+							modifyYouBikeStyle(modifyYouBike);
 						});
 					}
+					
+					console.log(modifyBus);
 				});
 			}
 		});
