@@ -143,8 +143,8 @@ $(function() {
 									}
 									else {
 										var sec = data[index].EstimateTime;
-										var mins = sec / 60;
-										modifyBus[placeIndex] = "公車還有" + mins + "分鐘到站";
+										var mins = Math.round(sec / 60);
+										modifyBus[placeIndex] = "公車還有約" + mins + "分鐘到站";
 									}
 								}
 								
@@ -153,9 +153,7 @@ $(function() {
 							$("div[jstcache='0']").each(function(index) {
 								if(modifyBus[index]) {
 									//strike or tag some message
-									var strHTML = $(this).html();
-									$(this).html("");
-									$(this).html(strHTML + "→" + "(" + modifyBus[index] + ")");
+									$(this).append("→" + "(" + modifyBus[index] + ")");
 								}
 							});
 						});
