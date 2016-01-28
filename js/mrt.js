@@ -63,6 +63,7 @@ $(function() {
 				}
 				
 				//modify bus number,公車幾路
+				/*
 				if(busNo.indexOf("紅") !== -1)
 					busNum = "紅" + busNum;
 				if(busNo.indexOf("橘") !== -1)
@@ -83,6 +84,7 @@ $(function() {
 					busNum = "敦化幹線";
 				if(busNo.indexOf("重慶幹線") !== -1)
 					busNum = "重慶幹線";
+				*/
 				
 				//得到公車時間,查詢是否還有公車
 				if(busTime.indexOf("上午") !== -1 && busTime.indexOf("下午") !== -1) {
