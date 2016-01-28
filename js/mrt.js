@@ -165,6 +165,7 @@ $(function() {
 							}
 							
 							modifyBusStyle(modifyBus, placeIndex);
+							console.log(modifyBus);
 						});
 					}
 					else {
