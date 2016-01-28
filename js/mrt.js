@@ -193,12 +193,10 @@ $(function() {
 								
 							}
 							
-							modifyBusStyle(modifyBus);
-							modifyYouBikeStyle(modifyYouBike);
+							modifyBusStyle(modifyBus, placeIndex);
+							modifyYouBikeStyle(modifyYouBike, placeIndex);
 						});
 					}
-					
-					console.log(modifyBus);
 				});
 			}
 		});
