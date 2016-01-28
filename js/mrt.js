@@ -164,7 +164,8 @@ $(function() {
 								
 							}
 							
-							modifyBusStyle(modifyBus, placeIndex);
+							modifyBusStyle(modifyBus, stepIndex);
+							modifyYouBikeStyle(modifyYouBike, stepIndex);
 						});
 					}
 					else {
@@ -197,7 +198,6 @@ $(function() {
 							
 							modifyBusStyle(modifyBus, stepIndex);
 							modifyYouBikeStyle(modifyYouBike, stepIndex);
-							console.log(modifyBus);
 						});
 					}
 				});
@@ -385,7 +385,7 @@ $(function() {
 
 function modifyBusStyle(modifyBus, stepIndex) {
 	$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
-		if(stepIndex === index) {
+		if(modifyBus[index]) {
 			//strike or tag some message
 			$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
 		}
@@ -398,7 +398,7 @@ function modifyYouBikeStyle(modifyYouBike, stepIndex) {
 		return;
 	else {
 		$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
-			if(stepIndex === index) {
+			if(modifyBus[index]) {
 				//strike or tag some message
 				$(this).append("<span class='modify-youbike'>" + "路線建議，YouBike：" + "(" + modifyYouBike[index] + ")" + "</span>");
 			}
