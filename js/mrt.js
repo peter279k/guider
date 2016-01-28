@@ -86,7 +86,7 @@ $(function() {
 						temp = temp[0].split("下午");
 					}
 					else {
-					temp = temp[1].split("下午");
+						temp = temp[1].split("下午");
 					}
 
 					getBusTime = temp[0];
@@ -107,7 +107,7 @@ $(function() {
 				
 				//上車站名
 				var startName = placeName[stepIndex];
-				console.log(startName);
+				console.log(placeName);
 				var startIndex = 0;
 				
 				//下車站名
@@ -357,7 +357,7 @@ $(function() {
 });
 
 function modifyBusStyle(modifyBus) {
-	$("span[jstcache='46']").each(function(index) {
+	$("b[jstcache='41']").each(function(index) {
 		if(modifyBus[index]) {
 			//strike or tag some message
 			$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
