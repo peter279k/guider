@@ -150,15 +150,15 @@ $(function() {
 							for(var index=0;index<data.length;index++) {
 								if(startName.indexOf(data[index].StopNameZh) !== -1) {
 									if(data[index].EstimateTime === -1) {
-										modifyBus[placeIndex] = "目前未知時間";
+										modifyBus[stepIndex] = "目前未知時間";
 									}
 									else if(data[index].EstimateTime === 0) {
-										modifyBus[placeIndex] = "公車已過站";
+										modifyBus[stepIndex] = "公車已過站";
 									}
 									else {
 										var sec = data[index].EstimateTime;
 										var mins = Math.round(sec / 60);
-										modifyBus[placeIndex] = "公車還有約" + mins + "分鐘到站";
+										modifyBus[stepIndex] = "公車還有約" + mins + "分鐘到站";
 									}
 								}
 								
@@ -177,26 +177,26 @@ $(function() {
 							for(var index=0;index<data.length;index++) {
 								if(endName.indexOf(data[index].StopNameZh) !== -1) {
 									if(data[index].EstimateTime === -1) {
-										modifyBus[placeIndex] = "目前未知時間";
+										modifyBus[stepIndex] = "目前未知時間";
 										//新增 youbike 路徑(add youbike route)
-										modifyYouBike[placeIndex] = "";
+										modifyYouBike[stepIndex] = "";
 									}
 									else if(data[index].EstimateTime === 0) {
-										modifyBus[placeIndex] = "公車已過站";
+										modifyBus[stepIndex] = "公車已過站";
 										//新增 youbike 路徑(add youbike route)
-										modifyYouBike[placeIndex] = "";
+										modifyYouBike[stepIndex] = "";
 									}
 									else {
 										var sec = data[index].EstimateTime;
 										var mins = Math.round(sec / 60);
-										modifyBus[placeIndex] = "公車還有約" + mins + "分鐘到站";
+										modifyBus[stepIndex] = "公車還有約" + mins + "分鐘到站";
 									}
 								}
 								
 							}
 							
-							modifyBusStyle(modifyBus, placeIndex);
-							modifyYouBikeStyle(modifyYouBike, placeIndex);
+							modifyBusStyle(modifyBus, stepIndex);
+							modifyYouBikeStyle(modifyYouBike, stepIndex);
 							console.log(modifyBus);
 						});
 					}
@@ -383,21 +383,21 @@ $(function() {
 	*/
 });
 
-function modifyBusStyle(modifyBus, placeIndex) {
+function modifyBusStyle(modifyBus, stepIndex) {
 	$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
-		if(placeIndex === index) {
+		if(stepIndex === index) {
 			//strike or tag some message
 			$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
 		}
 	});
 }
 
-function modifyYouBikeStyle(modifyYouBike, placeIndex) {
+function modifyYouBikeStyle(modifyYouBike, stepIndex) {
 	if(modifyYouBike.length === 0)
 		return;
 	else {
 		$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
-			if(placeIndex === index) {
+			if(stepIndex === index) {
 				//strike or tag some message
 				$(this).append("<span class='modify-youbike'>" + "路線建議，YouBike：" + "(" + modifyYouBike[index] + ")" + "</span>");
 			}
