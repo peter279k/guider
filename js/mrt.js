@@ -150,7 +150,7 @@ $(function() {
 								
 							}
 							
-							$("div[jstcache='0']").each(function(index) {
+							$("span[jstcache='46']").each(function(index) {
 								if(modifyBus[index]) {
 									//strike or tag some message
 									$(this).append("→" + "(" + modifyBus[index] + ")");
