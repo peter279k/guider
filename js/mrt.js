@@ -385,7 +385,7 @@ $(function() {
 
 function modifyBusStyle(modifyBus, placeIndex) {
 	$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
-		if(modifyBus[placeIndex]) {
+		if(placeIndex === index) {
 			//strike or tag some message
 			$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
 		}
@@ -397,7 +397,7 @@ function modifyYouBikeStyle(modifyYouBike, placeIndex) {
 		return;
 	else {
 		$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
-			if(modifyBus[placeIndex]) {
+			if(placeIndex === index) {
 				//strike or tag some message
 				$(this).append("<span class='modify-youbike'>" + "路線建議，YouBike：" + "(" + modifyYouBike[index] + ")" + "</span>");
 			}
