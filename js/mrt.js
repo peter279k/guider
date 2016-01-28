@@ -107,6 +107,7 @@ $(function() {
 				
 				//上車站名
 				var startName = placeName[stepIndex];
+				console.log(startName);
 				var startIndex = 0;
 				
 				//下車站名
