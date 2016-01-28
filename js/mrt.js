@@ -165,7 +165,6 @@ $(function() {
 							}
 							
 							modifyBusStyle(modifyBus, placeIndex);
-							console.log(modifyBus);
 						});
 					}
 					else {
@@ -198,6 +197,7 @@ $(function() {
 							
 							modifyBusStyle(modifyBus, placeIndex);
 							modifyYouBikeStyle(modifyYouBike, placeIndex);
+							console.log(modifyBus);
 						});
 					}
 				});
