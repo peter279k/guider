@@ -303,10 +303,16 @@ $(function() {
 			$(".map").tinyMap('modify', {
 				'center': centerPos,
 				'marker': [{
-					'addr': [
-						loc.coords.latitude,
-						loc.coords.longitude
-					]
+					'addr': [loc.coords.latitude, loc.coords.longitude],
+					'text': '<strong>YouBike Test icon</strong>',
+					'newLabel': 'YouBike',
+					// 自訂外部圖示
+					'icon': {
+						'url': 'http://i.imgur.com/MdhMalH.png',
+						'scaledSize': [48, 48]
+					},
+					// 動畫效果
+					'animation': 'DROP'
 				}]
 			});
 		}
@@ -381,23 +387,6 @@ $(function() {
 		'marker': mark
 	});
 	*/
-	
-	$(".map").tinyMap('modify', {
-		'marker': [
-			{
-				'addr': centerPos,
-				'text': '<strong>YouBike Test icon</strong>',
-				'newLabel': 'YouBike',
-				// 自訂外部圖示
-				'icon': {
-					'url': 'http://i.imgur.com/MdhMalH.png',
-					'scaledSize': [48, 48]
-				},
-				// 動畫效果
-				'animation': 'DROP'
-			}
-		]
-	});
 });
 
 function modifyBusStyle(modifyBus, stepIndex) {
