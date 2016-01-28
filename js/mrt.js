@@ -132,39 +132,12 @@ $(function() {
 					console.log(endIndex);
 
 					if((endIndex - startIndex) < 0) {
-						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
-							for(var index=0;index<data.length;index++) {
-								if(startName.indexOf(data[index].StopNameZh) !== -1) {
-									if(data[index].EstimateTime === -1) {
-										modifyBus[placeIndex] = "目前未知時間";
-									}
-									else if(data[index].EstimateTime === 0) {
-										modifyBus[placeIndex] = "公車已過站";
-									}
-									else {
-										var sec = data[index].EstimateTime;
-										var mins = Math.round(sec / 60);
-										modifyBus[placeIndex] = "公車還有約" + mins + "分鐘到站";
-									}
-								}
-								
-							}
-							
-							$("span[jstcache='46']").each(function(index) {
-								if(modifyBus[index]) {
-									//strike or tag some message
-									$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
-								}
-							});
-						});
+						goBack = 0;
+						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, addBusInfo);
 					}
 					else {
 						goBack = 1;
-						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
-							$(data).find("EstimateTimeModel").each(function(index) {
-								
-							});
-						});
+						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, addBusInfoEnd);
 					}
 				});
 			}
@@ -343,3 +316,55 @@ $(function() {
 	});
 	*/
 });
+
+function addBusInfo(data) {
+	for(var index=0;index<data.length;index++) {
+		if(startName.indexOf(data[index].StopNameZh) !== -1) {
+			if(data[index].EstimateTime === -1) {
+				modifyBus[placeIndex] = "目前未知時間";
+			}
+			else if(data[index].EstimateTime === 0) {
+				modifyBus[placeIndex] = "公車已過站";
+			}
+			else {
+				var sec = data[index].EstimateTime;
+				var mins = Math.round(sec / 60);
+				modifyBus[placeIndex] = "公車還有約" + mins + "分鐘到站";
+			}
+		}
+			
+	}
+
+	$("span[jstcache='46']").each(function(index) {
+		if(modifyBus[index]) {
+			//strike or tag some message
+			$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
+		}
+	});
+}
+
+function addBusInfoEnd(data) {
+	for(var index=0;index<data.length;index++) {
+		if(endName.indexOf(data[index].StopNameZh) !== -1) {
+			if(data[index].EstimateTime === -1) {
+				modifyBus[placeIndex] = "目前未知時間";
+			}
+			else if(data[index].EstimateTime === 0) {
+				modifyBus[placeIndex] = "公車已過站";
+			}
+			else {
+				var sec = data[index].EstimateTime;
+				var mins = Math.round(sec / 60);
+				modifyBus[placeIndex] = "公車還有約" + mins + "分鐘到站";
+			}
+		}
+			
+	}
+
+	$("span[jstcache='46']").each(function(index) {
+		if(modifyBus[index]) {
+			//strike or tag some message
+			$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
+		}
+	});
+}
