@@ -173,6 +173,8 @@ $(function() {
 								}
 								
 							}
+							
+							modifyBusStyle(modifyBus);
 						});
 					}
 				});
