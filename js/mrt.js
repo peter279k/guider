@@ -309,7 +309,7 @@ $(function() {
 					// 自訂外部圖示
 					'icon': {
 						'url': 'http://i.imgur.com/MdhMalH.png',
-						'scaledSize': [48, 48]
+						'scaledSize': [30, 30]
 					},
 					// 動畫效果
 					'animation': 'DROP'
