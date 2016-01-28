@@ -128,6 +128,8 @@ $(function() {
 							startIndex = index;
 						if(endName.indexOf(data[index].StopNameZh) !== -1 || endName === data[index].StopNameZh)
 							endIndex = index;
+						console.log(endName);
+						console.log(data[index].StopNameZh);
 					}
 					console.log(startIndex);
 					console.log(endIndex);
