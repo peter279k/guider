@@ -16,11 +16,13 @@ $(function() {
 	var placeName = [];
 	var terminalName = [];
 	var modifyBus = [];
+	var modifyYouBike = [];
 	var placeIndex = 0;
 	var checkServer = true;
 	
 	$("#modify-route").click(function() {
 		modifyBus = [];
+		modifyYouBike = [];
 		checkServer = true;
 		
 		if($("#panel").html().length === 0) {
@@ -163,7 +165,7 @@ $(function() {
 								
 							}
 							
-							modifyBusStyle(modifyBus);
+							modifyBusStyle(modifyBus, placeIndex);
 						});
 					}
 					else {
@@ -177,9 +179,13 @@ $(function() {
 								if(endName.indexOf(data[index].StopNameZh) !== -1) {
 									if(data[index].EstimateTime === -1) {
 										modifyBus[placeIndex] = "目前未知時間";
+										//新增 youbike 路徑(add youbike route)
+										modifyYouBike[placeIndex] = "";
 									}
 									else if(data[index].EstimateTime === 0) {
 										modifyBus[placeIndex] = "公車已過站";
+										//新增 youbike 路徑(add youbike route)
+										modifyYouBike[placeIndex] = "";
 									}
 									else {
 										var sec = data[index].EstimateTime;
@@ -190,7 +196,8 @@ $(function() {
 								
 							}
 							
-							modifyBusStyle(modifyBus);
+							modifyBusStyle(modifyBus, placeIndex);
+							modifyYouBikeStyle(modifyYouBike, placeIndex);
 						});
 					}
 				});
@@ -376,11 +383,24 @@ $(function() {
 	*/
 });
 
-function modifyBusStyle(modifyBus) {
+function modifyBusStyle(modifyBus, placeIndex) {
 	$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
-		if(modifyBus[index]) {
+		if(modifyBus[placeIndex]) {
 			//strike or tag some message
 			$(this).append("<span class='modify-bus'>" + "→" + "(" + modifyBus[index] + ")" + "</span>");
 		}
 	});
+}
+
+function modifyYouBikeStyle(modifyYouBike, placeIndex) {
+	if(modifyYouBike.length === 0)
+		return;
+	else {
+		$("b[jscontent='getOrigin($leg, $index)']").each(function(index) {
+			if(modifyBus[placeIndex]) {
+				//strike or tag some message
+				$(this).append("<span class='modify-youbike'>" + "路線建議，YouBike：" + "(" + modifyYouBike[index] + ")" + "</span>");
+			}
+		});
+	}
 }
