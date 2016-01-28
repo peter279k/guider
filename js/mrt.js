@@ -19,6 +19,7 @@ $(function() {
 	var placeIndex = 0;
 	
 	$("#modify-route").click(function() {
+		modifyBus = [];
 		if($("#panel").html().length === 0) {
 			alertify.alert("Sorry！沒有路線可修正！");
 			return false;
