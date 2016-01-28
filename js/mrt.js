@@ -381,6 +381,7 @@ $(function() {
 		'marker': mark
 	});
 	*/
+	
 	$(".map").tinyMap({
 		// Map center
 		'center': centerPos,
@@ -391,7 +392,7 @@ $(function() {
 		'zoom': 14,
 		'marker': [
 			{
-				'addr': ['25.039065815333753', '121.56097412109375'],
+				'addr': centerPos,
 				'text': '<strong>YouBike Test icon</strong>',
 				'newLabel': 'YouBike',
 				// 自訂外部圖示
