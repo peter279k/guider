@@ -393,6 +393,7 @@ function modifyBusStyle(modifyBus, stepIndex) {
 }
 
 function modifyYouBikeStyle(modifyYouBike, stepIndex) {
+	//http://i.imgur.com/MdhMalH.png Bike images
 	if(modifyYouBike.length === 0)
 		return;
 	else {
