@@ -149,11 +149,11 @@ $(function() {
 							}
 							for(var index=0;index<data.length;index++) {
 								if(startName.indexOf(data[index].StopNameZh) !== -1) {
-									if(data[index].EstimateTime === -1) {
+									if(data[index].EstimateTime == -1) {
 										modifyBus[stepIndex] = "目前未知時間";
 									}
-									else if(data[index].EstimateTime === 0) {
-										modifyBus[stepIndex] = "公車已過站";
+									else if(data[index].EstimateTime == 0) {
+										modifyBus[stepIndex] = "公車已過站或到站";
 									}
 									else {
 										var sec = data[index].EstimateTime;
@@ -177,12 +177,12 @@ $(function() {
 							}
 							for(var index=0;index<data.length;index++) {
 								if(endName.indexOf(data[index].StopNameZh) !== -1) {
-									if(data[index].EstimateTime === -1) {
+									if(data[index].EstimateTime == -1) {
 										modifyBus[stepIndex] = "目前未知時間";
 										//新增 youbike 路徑(add youbike route)
 										modifyYouBike[stepIndex] = "";
 									}
-									else if(data[index].EstimateTime === 0) {
+									else if(data[index].EstimateTime == 0) {
 										modifyBus[stepIndex] = "公車已過站";
 										//新增 youbike 路徑(add youbike route)
 										modifyYouBike[stepIndex] = "";
