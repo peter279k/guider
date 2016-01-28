@@ -137,7 +137,7 @@ $(function() {
 										modifyBus[placeIndex] = "目前未知時間";
 									}
 									else if(data[index].EstimateTime === 0) {
-										modifyBus[placeIndex] = "公車已過";
+										modifyBus[placeIndex] = "公車已過站";
 									}
 									else {
 										var sec = data[index].EstimateTime;
@@ -147,6 +147,15 @@ $(function() {
 								}
 								
 							}
+							
+							$("div[jstcache='0']").each(function(index) {
+								if(modifyBus[index]) {
+									//strike or tag some message
+									var strHTML = $(this).html();
+									$(this).html("");
+									$(this).html(strHTML + "→" + "(" + modifyBus[index] + ")");
+								}
+							});
 						});
 					}
 					else {
@@ -159,10 +168,6 @@ $(function() {
 					}
 				});
 			}
-		});
-
-		$("div[jstcache='0']").each(function(index) {
-			console.log(modifyBus);
 		});
 	});
 	
