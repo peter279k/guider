@@ -128,6 +128,8 @@ $(function() {
 						if(endName.indexOf(data[index].StopNameZh) !== -1)
 							endIndex = index;
 					}
+					console.log(startIndex);
+					console.log(endIndex);
 
 					if((endIndex - startIndex) > 0) {
 						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
