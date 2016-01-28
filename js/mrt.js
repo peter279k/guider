@@ -17,9 +17,12 @@ $(function() {
 	var terminalName = [];
 	var modifyBus = [];
 	var placeIndex = 0;
+	var checkServer = true;
 	
 	$("#modify-route").click(function() {
 		modifyBus = [];
+		checkServer = true;
+		
 		if($("#panel").html().length === 0) {
 			alertify.alert("Sorry！沒有路線可修正！");
 			return false;
@@ -123,7 +126,10 @@ $(function() {
 				busNum = encodeURIComponent(busNum);
 
 				$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=0", function(data) {
-					//checkGoBack();
+					if(!data) {
+						checkServer = false;
+						return;
+					}
 					for(var index=0;index<data.length;index++) {
 						if(startName.indexOf(data[index].StopNameZh) !== -1 || startName === data[index].StopNameZh)
 							startIndex = index;
@@ -136,6 +142,10 @@ $(function() {
 					if((endIndex - startIndex) < 0) {
 						goBack = 0;
 						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
+							if(!data) {
+								checkServer = false;
+								return;
+							}
 							for(var index=0;index<data.length;index++) {
 								if(startName.indexOf(data[index].StopNameZh) !== -1) {
 									if(data[index].EstimateTime === -1) {
@@ -159,6 +169,10 @@ $(function() {
 					else {
 						goBack = 1;
 						$.get("http://taipeiomg.azurewebsites.net/api/EstimateTime?id=" + busNum + "&goBack=" + goBack, function(data) {
+							if(!data) {
+								checkServer = false;
+								return;
+							}
 							for(var index=0;index<data.length;index++) {
 								if(endName.indexOf(data[index].StopNameZh) !== -1) {
 									if(data[index].EstimateTime === -1) {
@@ -182,6 +196,11 @@ $(function() {
 				});
 			}
 		});
+		
+		if(checkServer)
+			alertify.alert("修改完成！");
+		else
+			alertify.alert("伺服器錯誤沒有有收到資料！");
 	});
 	
 	$("#submit").click(function(event) {
