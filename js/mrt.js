@@ -303,16 +303,7 @@ $(function() {
 			$(".map").tinyMap('modify', {
 				'center': centerPos,
 				'marker': [{
-					'addr': [loc.coords.latitude, loc.coords.longitude],
-					'text': '<strong>YouBike Test icon</strong>',
-					'newLabel': 'YouBike',
-					// 自訂外部圖示
-					'icon': {
-						'url': 'http://i.imgur.com/MdhMalH.png',
-						'scaledSize': [30, 30]
-					},
-					// 動畫效果
-					'animation': 'DROP'
+					'addr': [loc.coords.latitude, loc.coords.longitude]
 				}]
 			});
 		}
