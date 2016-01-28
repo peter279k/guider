@@ -382,14 +382,7 @@ $(function() {
 	});
 	*/
 	
-	$(".map").tinyMap({
-		// Map center
-		'center': centerPos,
-		// or 'center': 'lat, lng'
-		// or 'center': [lat, lng]
-		// or 'center': 'ADDRESS'
-		// or 'center': 'N48°45.5952  E20°59.976' // WGS84 format
-		'zoom': 14,
+	$(".map").tinyMap('modify', {
 		'marker': [
 			{
 				'addr': centerPos,
